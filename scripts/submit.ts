@@ -5,7 +5,7 @@ const submitChrome = (opts: { dryRun: boolean }) => {
   return publishExtension({
     dryRun: opts.dryRun,
     chrome: {
-      zip: `.output/web-extension-template-${process.env.npm_package_version}-chrome.zip`,
+      zip: `.output/clean-youtube-chat-${process.env.npm_package_version}-chrome.zip`,
       extensionId: "<cws-extension-id>",
       clientId: process.env.CHROME_CLIENT_ID ?? "",
       clientSecret: process.env.CHROME_CLIENT_SECRET ?? "",
@@ -20,9 +20,9 @@ const submitFirefox = (opts: { dryRun: boolean }) => {
   return publishExtension({
     dryRun: opts.dryRun,
     firefox: {
-      zip: `.output/web-extension-template-${process.env.npm_package_version}-firefox.zip`,
-      sourcesZip: `.output/web-extension-template-${process.env.npm_package_version}-sources.zip`,
-      extensionId: "web-extension-template@noriapi.addon",
+      zip: `.output/clean-youtube-chat-${process.env.npm_package_version}-firefox.zip`,
+      sourcesZip: `.output/clean-youtube-chat-${process.env.npm_package_version}-sources.zip`,
+      extensionId: "clean-youtube-chat@noriapi.addon",
       jwtIssuer: process.env.FIREFOX_JWT_ISSUER ?? "",
       jwtSecret: process.env.FIREFOX_JWT_SECRET ?? "",
       // channel: '<listed|unlisted>',
