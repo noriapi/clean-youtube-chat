@@ -1,0 +1,12 @@
+import { defineRunnerConfig } from 'wxt';
+
+// switch locale
+const locale = "en-US";
+// const locale = "ja-JP";
+
+export default defineRunnerConfig({
+    chromiumArgs: [`--lang=${locale}`],
+    firefoxPrefs: {
+      "general.useragent.locale": locale,
+    },
+});

@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "web-extension-template",
+    "description": "Name of the extension."
+  },
+  "extDescription": {
+    "message": "",
+    "description": "Description of the extension."
+  }
+}
