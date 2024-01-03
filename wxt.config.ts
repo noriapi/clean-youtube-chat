@@ -7,14 +7,14 @@ const manifestBase = {
   default_locale: "en",
   permissions: ["storage"],
   author: "noriapi",
-  // homepage_url: "https://github.com/noriapi/web-extension-template",
+  homepage_url: "https://github.com/noriapi/clean-youtube-chat",
 };
 
 const manifestV2 = {
   ...manifestBase,
   browser_specific_settings: {
     gecko: {
-      // id: "web-extension-template@noriapi.addon",
+      id: "clean-youtube-chat@noriapi.addon",
       strict_min_version: "57.0",
     },
   },
