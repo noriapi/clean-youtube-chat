@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "description": "",
+  "homepage": "https://github.com/noriapi/clean-youtube-chat",
+  "bugs": {
+    "url": "https://github.com/noriapi/clean-youtube-chat/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noriapi/clean-youtube-chat.git"
+  },
   "author": {
     "name": "noriapi"
   },
