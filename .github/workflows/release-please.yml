@@ -18,7 +18,7 @@ jobs:
       - uses: google-github-actions/release-please-action@v4
         id: release-please
         with:
-          token: ${{ secrets.HIDE_YOUTUBE_NUMBERS_RELEASE_PLEASE }}
+          token: ${{ secrets.MY_GITHUB_TOKEN }}
 
   github-release:
     needs: release-please
@@ -68,7 +68,7 @@ jobs:
 
       - name: Upload Release Artifact
         env:
-          GITHUB_TOKEN: ${{ secrets.HIDE_YOUTUBE_NUMBERS_RELEASE_PLEASE }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
         run: gh release upload ${{ needs.release-please.outputs.tag_name }} ./.output/*.zip
 
   store-release:
