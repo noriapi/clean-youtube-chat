@@ -11,6 +11,7 @@
     "type": "git",
     "url": "https://github.com/noriapi/clean-youtube-chat.git"
   },
+  "license": "MIT",
   "author": {
     "name": "noriapi"
   },
