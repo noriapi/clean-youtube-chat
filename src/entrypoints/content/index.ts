@@ -14,7 +14,7 @@ import {
 import styles from "./style.module.css";
 
 export type ClassName = keyof typeof styles;
-export const CLASS_NAMES = Object.keys(styles) as ClassName[];
+export const getClassNames = () => Object.keys(styles) as ClassName[];
 
 const setStyle = (className: ClassName, enabled: boolean) => {
   const body = document.getElementsByTagName("body")[0];
@@ -29,7 +29,7 @@ const setStyle = (className: ClassName, enabled: boolean) => {
 const setStylesByConfig = (config: Config) => {
   const classList = classNames(config);
 
-  CLASS_NAMES.forEach((className) => {
+  getClassNames().forEach((className) => {
     const enabled = classList.includes(className);
     setStyle(className, enabled);
   });

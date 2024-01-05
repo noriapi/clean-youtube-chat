@@ -1,7 +1,7 @@
 import { fc, it } from "@fast-check/vitest";
 import { describe, expect } from "vitest";
 
-import { CLASS_NAMES } from "~/entrypoints/content";
+import { getClassNames } from "~/entrypoints/content";
 
 import { classNames, Config } from "./config";
 
@@ -34,7 +34,7 @@ const arbConfig = fc.record({
 describe("classNames", () => {
   it.prop([arbConfig])("should always return valid classNames", (config) => {
     classNames(config).forEach((cn) => {
-      expect(CLASS_NAMES).toContain(cn);
+      expect(getClassNames()).toContain(cn);
     });
   });
 });
