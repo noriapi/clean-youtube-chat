@@ -6,5 +6,70 @@
   "extDescription": {
     "message": "",
     "description": "Description of the extension."
+  },
+
+  "configFormTitle": {
+    "message": "Config",
+    "description": "Title of configuration form."
+  },
+  "configFormMessage": {
+    "message": "Whole Message",
+    "description": "Message section title of configuration form."
+  },
+  "configFormName": {
+    "message": "Name",
+    "description": "Name section title of configuration form."
+  },
+  "configFormIcon": {
+    "message": "Icon",
+    "description": "Icon section title of configuration form."
+  },
+  "configFormBadge": {
+    "message": "Badge",
+    "description": "Badge section title of configuration form."
+  },
+  "configFormOwner": {
+    "message": "Channel Owner",
+    "description": "Owner section title of configuration form."
+  },
+  "configFormModerator": {
+    "message": "Moderator",
+    "description": "Moderator section title of configuration form."
+  },
+  "configFormOthers": {
+    "message": "Others",
+    "description": "Others section title of configuration form."
+  },
+  "configFormSuperchat": {
+    "message": "Super Chat",
+    "description": "Super Chat section title of configuration form."
+  },
+  "configFormSticker": {
+    "message": "Sticker",
+    "description": "Sticker section title of configuration form."
+  },
+  "configFormSuperchatBar": {
+    "message": "Super Chat Bar",
+    "description": "Super Chat Bar section title of configuration form."
+  },
+  "configFormMemberChat": {
+    "message": "Member Chat",
+    "description": "Member Chat section title of configuration form."
+  },
+  "configFormEngagement": {
+    "message": "Engagement",
+    "description": "Engagement section title of configuration form."
+  },
+  "configFormHide": {
+    "message": "Hide",
+    "description": "`Hide` option label of configuration form."
+  },
+  "configFormNoHighlight": {
+    "message": "No Highlight",
+    "description": "`No Highlight` option label of configuration form."
+  },
+  "configFormShow": {
+    "message": "Show",
+    "description": "`Show` option label of configuration form."
   }
 }

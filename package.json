@@ -28,15 +28,18 @@
     "lint:fix": "eslint --fix . && prettier --write src/**/*.{js,jsx,ts,tsx,html}",
     "submit": "env-cmd -f .env.submit --silent -- tsx scripts/submit.ts",
     "submit:firefox": "env-cmd -f .env.submit --silent -- tsx scripts/submit.ts -b firefox",
+    "test": "vitest",
     "zip": "wxt zip",
     "zip:firefox": "wxt zip -b firefox"
   },
   "dependencies": {
+    "io-ts": "^2.2.21",
     "solid-js": "^1.8.8"
   },
   "devDependencies": {
     "@commander-js/extra-typings": "^11.1.0",
     "@eslint/eslintrc": "^3.0.0",
+    "@fast-check/vitest": "^0.0.9",
     "@playwright/test": "^1.40.1",
     "@types/node": "^20.10.6",
     "@types/webextension-polyfill": "^0.10.7",
@@ -57,6 +60,7 @@
     "typescript-plugin-css-modules": "^5.0.2",
     "vite": "^5.0.10",
     "vite-plugin-solid": "^2.8.0",
+    "vitest": "^1.1.1",
     "wxt": "^0.13.3"
   },
   "packageManager": "pnpm@8.14.0",

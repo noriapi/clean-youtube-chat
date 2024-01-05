@@ -46,6 +46,9 @@ jobs:
       - name: lint check
         run: pnpm lint
 
+      - name: test
+        run: pnpm test
+
       - name: test build (chrome)
         run: pnpm build
 
