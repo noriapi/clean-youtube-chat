@@ -1,3 +1,5 @@
+import "./App.css";
+
 import { Component } from "solid-js";
 
 import ConfigForm from "~/components/ConfigForm";
