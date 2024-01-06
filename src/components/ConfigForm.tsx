@@ -1,5 +1,4 @@
-import { Component, createResource, Show, untrack } from "solid-js";
-import { createStore, SetStoreFunction } from "solid-js/store";
+import { Component, createResource, Show } from "solid-js";
 
 import * as C from "~/lib/config";
 
@@ -13,15 +12,7 @@ const ConfigForm: Component<{ defaultValue: C.Config }> = (props) => {
   return (
     <Show when={storageConfig()} keyed>
       {(c) => {
-        const [config, setStoreConfig] = createStore<C.Config>(c);
-
-        const setConfig: SetStoreFunction<C.Config> = (...args: any[]) => {
-          // @ts-expect-error: just passing arguments
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-          setStoreConfig(...args);
-          const value = untrack(() => config);
-          void C.saveConfig(value);
-        };
+        const [config, setConfig] = C.createConfigStore(c);
 
         return <ConfigFormInput value={config} setValue={setConfig} />;
       }}
