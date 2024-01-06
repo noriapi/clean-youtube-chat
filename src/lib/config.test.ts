@@ -8,7 +8,9 @@ import {
   AREA_NAME,
   classNames,
   Config,
+  CONFIG_HIDE_ALL,
   CONFIG_SHOW_ALL,
+  createConfigStore,
   eqConfig,
   loadConfig,
   onChangeHandler,
@@ -135,5 +137,22 @@ describe("onChangeHandler", () => {
     await fakeBrowser.storage[AREA_NAME].set({ config: "invalid" });
 
     expect(cb).not.toHaveBeenCalled();
+  });
+});
+
+describe("createConfigStore", () => {
+  beforeEach(() => {
+    fakeBrowser.reset();
+  });
+
+  it("should persist the config in storage", async () => {
+    const defaultValue = CONFIG_SHOW_ALL;
+    const expected = CONFIG_HIDE_ALL;
+
+    const [, setConfig] = createConfigStore(defaultValue);
+
+    setConfig(expected);
+
+    await expect(loadConfig(defaultValue)).resolves.toStrictEqual(expected);
   });
 });
