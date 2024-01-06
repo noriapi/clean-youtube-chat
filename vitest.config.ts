@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config";
+import { configDefaults, defineConfig } from "vitest/config";
 import { WxtVitest } from "wxt/testing";
 
 export default defineConfig({
@@ -9,6 +9,7 @@ export default defineConfig({
     css: {
       include: /.*\.module\.css$/,
     },
+    exclude: [...configDefaults.exclude, "e2e/*"],
   },
   // This is the line that matters!
   plugins: [WxtVitest()],
