@@ -1,8 +1,7 @@
 import * as D from "io-ts/Decoder";
 import * as Eq from "io-ts/Eq";
 import * as S from "io-ts/Schema";
-import { untrack } from "solid-js";
-import { createStore, SetStoreFunction } from "solid-js/store";
+import { createStore, SetStoreFunction, unwrap } from "solid-js/store";
 import { Storage } from "webextension-polyfill";
 import { browser } from "wxt/browser";
 
@@ -186,7 +185,7 @@ export const createConfigStore = (initialValue: Config) => {
     // @ts-expect-error: just passing arguments
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     setStoreConfig(...args);
-    const value = untrack(() => config);
+    const value = unwrap(config);
     void saveConfig(value);
   };
 
