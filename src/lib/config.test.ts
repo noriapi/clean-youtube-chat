@@ -1,9 +1,19 @@
 import { fc, it } from "@fast-check/vitest";
-import { describe, expect } from "vitest";
+import { beforeEach, describe, expect, vi } from "vitest";
+import { fakeBrowser } from "wxt/testing";
 
 import { getClassNames } from "~/entrypoints/content";
 
-import { classNames, Config } from "./config";
+import {
+  AREA_NAME,
+  classNames,
+  Config,
+  CONFIG_SHOW_ALL,
+  eqConfig,
+  loadConfig,
+  onChangeHandler,
+  saveConfig,
+} from "./config";
 
 const arbConfig = fc.record({
   message: fc.record({
@@ -36,5 +46,94 @@ describe("classNames", () => {
     classNames(config).forEach((cn) => {
       expect(getClassNames()).toContain(cn);
     });
+  });
+});
+
+describe("saveConfig, loadConfig", () => {
+  beforeEach(() => {
+    fakeBrowser.reset();
+  });
+
+  it.prop([arbConfig])(
+    "should always save and load the same config",
+    async (config) => {
+      await saveConfig(config);
+      await expect(loadConfig(CONFIG_SHOW_ALL)).resolves.toStrictEqual(config);
+    },
+  );
+});
+
+describe("onChangeHandler", () => {
+  beforeEach(() => {
+    fakeBrowser.reset();
+  });
+
+  it.prop([arbConfig])(
+    "should always handle changes that creating new config",
+    async (config) => {
+      const cb = vi.fn();
+
+      fakeBrowser.storage.onChanged.addListener(onChangeHandler(cb));
+
+      await saveConfig(config);
+
+      expect(cb).toHaveBeenCalledWith(config);
+    },
+  );
+
+  it.prop([
+    fc.uniqueArray(arbConfig, {
+      minLength: 2,
+      maxLength: 2,
+      comparator: eqConfig.equals,
+    }),
+  ])(
+    "should always handle changes that replacing old config",
+    async ([oldConfig, newConfig]) => {
+      const cb = vi.fn();
+
+      await saveConfig(oldConfig);
+
+      fakeBrowser.storage.onChanged.addListener(onChangeHandler(cb));
+
+      await saveConfig(newConfig);
+
+      expect(cb).toHaveBeenCalledWith(newConfig);
+    },
+  );
+
+  it.prop([arbConfig])(
+    "should not always handle changes that don't actually change",
+    async (config) => {
+      const cb = vi.fn();
+
+      await saveConfig(config);
+
+      fakeBrowser.storage.onChanged.addListener(onChangeHandler(cb));
+
+      await saveConfig(config);
+
+      expect(cb).not.toHaveBeenCalled();
+    },
+  );
+
+  it("should not handle storage changes if the config is not changed", async () => {
+    const cb = vi.fn();
+
+    fakeBrowser.storage.onChanged.addListener(onChangeHandler(cb));
+
+    await fakeBrowser.storage[AREA_NAME].set({ abc: "def" });
+
+    expect(cb).not.toHaveBeenCalled();
+  });
+
+  it("should not handle storage changes if the config is invalid", async () => {
+    const cb = vi.fn();
+
+    fakeBrowser.storage.onChanged.addListener(onChangeHandler(cb));
+
+    await fakeBrowser.storage[AREA_NAME].set({ config: "invalid" });
+
+    expect(cb).not.toHaveBeenCalled();
   });
 });
