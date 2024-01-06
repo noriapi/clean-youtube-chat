@@ -48,6 +48,7 @@ export default defineContentScript({
   matches: ["*://www.youtube.com/*"],
   runAt: "document_end",
   cssInjectionMode: "manifest",
+  allFrames: true,
   main: () => {
     initStyle();
     browser.storage.onChanged.addListener(
