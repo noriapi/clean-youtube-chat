@@ -41,7 +41,7 @@
     "@eslint/eslintrc": "^3.0.0",
     "@fast-check/vitest": "^0.0.9",
     "@playwright/test": "^1.40.1",
-    "@types/node": "^20.10.6",
+    "@types/node": "^20.10.7",
     "@types/webextension-polyfill": "^0.10.7",
     "@typescript-eslint/eslint-plugin": "^6.18.0",
     "@typescript-eslint/parser": "^6.18.0",
