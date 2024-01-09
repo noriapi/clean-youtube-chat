@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "io-ts": "^2.2.21",
-    "solid-js": "^1.8.8"
+    "solid-js": "^1.8.9"
   },
   "devDependencies": {
     "@commander-js/extra-typings": "^11.1.0",
