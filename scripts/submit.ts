@@ -6,7 +6,7 @@ const submitChrome = (opts: { dryRun: boolean }) => {
     dryRun: opts.dryRun,
     chrome: {
       zip: `.output/clean-youtube-chat-${process.env.npm_package_version}-chrome.zip`,
-      extensionId: "<cws-extension-id>",
+      extensionId: "jopjhpjdcfhebbeinedfggddhighpjjo",
       clientId: process.env.CHROME_CLIENT_ID ?? "",
       clientSecret: process.env.CHROME_CLIENT_SECRET ?? "",
       refreshToken: process.env.CHROME_REFRESH_TOKEN ?? "",
