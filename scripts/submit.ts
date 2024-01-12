@@ -1,8 +1,8 @@
 import { Command, Option } from "@commander-js/extra-typings";
 import { publishExtension } from "publish-browser-extension";
 
-const submitChrome = (opts: { dryRun: boolean }) => {
-  return publishExtension({
+const submitChrome = async (opts: { dryRun: boolean }) => {
+  const result = await publishExtension({
     dryRun: opts.dryRun,
     chrome: {
       zip: `.output/clean-youtube-chat-${process.env.npm_package_version}-chrome.zip`,
@@ -14,10 +14,11 @@ const submitChrome = (opts: { dryRun: boolean }) => {
       // skipSubmitReview: false,
     },
   });
+  return result.chrome!;
 };
 
-const submitFirefox = (opts: { dryRun: boolean }) => {
-  return publishExtension({
+const submitFirefox = async (opts: { dryRun: boolean }) => {
+  const result = await publishExtension({
     dryRun: opts.dryRun,
     firefox: {
       zip: `.output/clean-youtube-chat-${process.env.npm_package_version}-firefox.zip`,
@@ -28,6 +29,7 @@ const submitFirefox = (opts: { dryRun: boolean }) => {
       // channel: '<listed|unlisted>',
     },
   });
+  return result.firefox!;
 };
 
 const main = () => {
@@ -38,11 +40,17 @@ const main = () => {
         .choices(["chrome", "firefox"] as const)
         .default("chrome" as const),
     )
-    .parse();
+    .action(async (opts) => {
+      const result =
+        opts.browser === "chrome"
+          ? await submitChrome(opts)
+          : await submitFirefox(opts);
+      if (!result.success) {
+        throw new Error(result.err);
+      }
+    });
 
-  const options = program.opts();
-
-  options.browser === "chrome" ? submitChrome(options) : submitFirefox(options);
+  program.parse();
 };
 
 main();
