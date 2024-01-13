@@ -61,7 +61,7 @@
     "vite": "^5.0.11",
     "vite-plugin-solid": "^2.8.0",
     "vitest": "^1.2.0",
-    "wxt": "^0.14.0"
+    "wxt": "^0.14.1"
   },
   "packageManager": "pnpm@8.14.1",
   "volta": {
