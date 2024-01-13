@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^1.2.0
     version: 1.2.0(@types/node@20.11.0)
   wxt:
-    specifier: ^0.14.0
-    version: 0.14.0(@types/node@20.11.0)
+    specifier: ^0.14.1
+    version: 0.14.1(@types/node@20.11.0)
 
 packages:
 
@@ -5077,8 +5077,8 @@ packages:
         optional: true
     dev: true
 
-  /wxt@0.14.0(@types/node@20.11.0):
-    resolution: {integrity: sha512-kIc1QZaMj3N8xeWTmiyRzqF8bf8sadZQfilB3i35Eg4W3aDWgj6pOS2BQaAeFAH/hCmqGQB3ZkgGhBIdplvj7g==}
+  /wxt@0.14.1(@types/node@20.11.0):
+    resolution: {integrity: sha512-2kmfa9YeiLi1X9GYvMjzvXPVF+sF1tbmMwCOAppv8L+1e1fZXcmTJCoeTwUTXxsZ3R5P10oaFujkOyYJnzpXdQ==}
     engines: {node: '>=18', pnpm: '>=8'}
     hasBin: true
     dependencies:
