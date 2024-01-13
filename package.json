@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "io-ts": "^2.2.21",
+    "solid-icons": "^1.1.0",
     "solid-js": "^1.8.11"
   },
   "devDependencies": {
@@ -41,6 +42,7 @@
     "@eslint/eslintrc": "^3.0.0",
     "@fast-check/vitest": "^0.0.9",
     "@playwright/test": "^1.40.1",
+    "@previewjs/cli": "^1.27.1",
     "@types/node": "^20.11.0",
     "@types/webextension-polyfill": "^0.10.7",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
