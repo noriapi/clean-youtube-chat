@@ -43,6 +43,7 @@ const srcTsConfigs = compat.config({
       parserOptions: {
         sourceType: "module",
         project: "tsconfig.json",
+        tsconfigRootDir: __dirname,
       },
     },
   ],
@@ -68,6 +69,7 @@ const solidConfig = {
     parser: tsParser,
     parserOptions: {
       project: "tsconfig.json",
+      tsconfigRootDir: __dirname,
     },
   },
 };
