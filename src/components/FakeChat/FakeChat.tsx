@@ -1,3 +1,5 @@
+import "./colors.css";
+
 import { ImCheckmark, ImHappy, ImSphere, ImWrench } from "solid-icons/im";
 import { Component, ComponentProps, For, Match, Show, Switch } from "solid-js";
 
@@ -385,6 +387,7 @@ const DEFAULT_TICKER_ITEMS = [
 ] satisfies TickerItemProps[];
 
 const FakeChat: Component<{
+  onClickTicker?: () => void;
   tickerItems?: TickerItemProps[];
   chatItems?: ChatItemProps[];
 }> = (props) => {
