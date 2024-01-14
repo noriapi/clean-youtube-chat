@@ -1,3 +1,6 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import tsParser from "@typescript-eslint/parser";
@@ -5,6 +8,9 @@ import prettier from "eslint-config-prettier";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import solid from "eslint-plugin-solid/configs/typescript.js";
 import globals from "globals";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat();
 
@@ -43,6 +49,7 @@ const srcTsConfigs = compat.config({
       parserOptions: {
         sourceType: "module",
         project: "tsconfig.json",
+        tsconfigRootDir: __dirname,
       },
     },
   ],
@@ -68,6 +75,7 @@ const solidConfig = {
     parser: tsParser,
     parserOptions: {
       project: "tsconfig.json",
+      tsconfigRootDir: __dirname,
     },
   },
 };
