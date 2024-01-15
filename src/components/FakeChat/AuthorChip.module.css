@@ -1,12 +1,53 @@
+.ytLiveChatAuthorChip[is-highlighted]
+  .chipBadges
+  .ytLiveChatAuthorBadgeRenderer {
+  color: inherit;
+}
+
 .ytLiveChatAuthorChip {
   display: inline-flex;
   align-items: baseline;
 }
 
 .authorName {
+  box-sizing: border-box;
+  border-radius: 2px;
+  color: var(--yt-live-chat-secondary-text-color);
+  font-weight: 500;
+}
+
+.authorName.member {
+  color: var(--yt-live-chat-sponsor-color);
+}
+
+.authorName.moderator {
+  color: var(--yt-live-chat-moderator-color);
+}
+
+.ytLiveChatAuthorChip[is-highlighted] .authorName {
+  padding: 2px 4px;
+  color: var(--yt-live-chat-author-chip-verified-text-color);
+  background-color: var(--yt-live-chat-author-chip-verified-background-color);
+}
+
+.ytLiveChatAuthorChip[is-highlighted] .authorName.owner,
+.authorName.owner {
+  background-color: var(--yt-live-chat-author-chip-owner-background-color);
+  color: var(--yt-live-chat-author-chip-owner-text-color);
+}
+
+.ytLiveChatAuthorChip[disable-highlighting] .authorName {
   color: var(
     --yt-live-chat-disable-highlight-message-author-name-color,
     rgba(255, 255, 255, 0.7)
   );
   font-size: 14px;
+}
+
+.chipBadges .ytLiveChatAuthorBadgeRenderer:last-of-type {
+  margin-right: -2px;
+}
+
+.chatBadges {
+  white-space: nowrap;
 }
