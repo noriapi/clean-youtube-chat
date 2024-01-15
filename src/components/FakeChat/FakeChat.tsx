@@ -5,6 +5,10 @@ import { Component, ComponentProps, For, Match, Show, Switch } from "solid-js";
 
 import Avatar from "./Avatar";
 import styles from "./FakeChat.module.css";
+import TickerRenderer, {
+  DEFAULT_TICKER_ITEMS,
+  TickerItemProps,
+} from "./TickerRenderer";
 
 type AuthorType = "" | "member" | "moderator" | "owner";
 
@@ -337,54 +341,6 @@ const DEFAULT_CHAT_ITEMS = [
     },
   },
 ] satisfies ChatItemProps[];
-
-const TickerPaidMessageItemRenderer: Component<{ "author-name": string }> = (
-  props,
-) => {
-  return (
-    <div class={styles.ytLiveChatTickerPaidMessageItemRenderer}>
-      <div class={styles.container}>
-        <div class={styles.content}>
-          <div
-            classList={{
-              [styles.authorPhoto]: true,
-              [styles.ytImageShadow]: true,
-            }}
-          >
-            <Avatar name={props["author-name"]} size={24} />
-          </div>
-          <div id="animation-container">
-            <div class={styles.text}>
-              <span>{props["author-name"]}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-type TickerItemProps = ComponentProps<typeof TickerPaidMessageItemRenderer>;
-
-const TickerRenderer: Component<{
-  items: TickerItemProps[];
-}> = (props) => {
-  return (
-    <div class={styles.ytLiveChatTickerRenderer}>
-      <div class={styles.items}>
-        <For each={props.items}>
-          {(item) => <TickerPaidMessageItemRenderer {...item} />}
-        </For>
-      </div>
-    </div>
-  );
-};
-
-const DEFAULT_TICKER_ITEMS = [
-  { "author-name": "Alice" },
-  { "author-name": "Bob" },
-  { "author-name": "Chris" },
-] satisfies TickerItemProps[];
 
 const FakeChat: Component<{
   onClickTicker?: () => void;

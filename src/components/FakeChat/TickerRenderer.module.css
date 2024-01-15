@@ -1,0 +1,66 @@
+.ytLiveChatTickerRenderer {
+  display: block;
+  background-color: var(--yt-live-chat-header-background-color);
+
+  position: relative;
+}
+
+.items {
+  height: 32px;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 24px 8px;
+}
+
+.items > .ytLiveChatTickerPaidMessageItemRenderer {
+  margin-right: 8px;
+}
+
+.ytLiveChatTickerPaidMessageItemRenderer {
+  display: inline-block;
+  font-size: 14px;
+  outline: none;
+  transition: width 0.2s;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container {
+  background: linear-gradient(
+    90deg,
+    rgba(29, 233, 182, 1),
+    rgba(29, 233, 182, 1) 82.13868333333328%,
+    rgba(0, 191, 165, 1) 82.13868333333328%,
+    rgba(0, 191, 165, 1)
+  );
+
+  border-radius: 999px;
+  padding: 4px;
+}
+
+.content {
+  color: rgb(0, 0, 0);
+
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ytImageShadow {
+  margin-right: -4px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.text {
+  margin: 0 8px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 96px;
+}
