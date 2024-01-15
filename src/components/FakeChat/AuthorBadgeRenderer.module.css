@@ -1,0 +1,18 @@
+.ytLiveChatAuthorBadgeRenderer {
+  margin: 0 0 0 2px;
+  vertical-align: sub;
+
+  display: inline-block;
+}
+
+.ytLiveChatAuthorBadgeRenderer[data-type="member"] {
+  color: var(--yt-live-chat-sponsor-color, #107516);
+}
+
+.ytLiveChatAuthorBadgeRenderer[data-type="moderator"] {
+  color: var(--yt-live-chat-moderator-color, #5e84f1);
+}
+
+.ytLiveChatAuthorBadgeRenderer[data-type="verified"] {
+  color: var(--yt-live-chat-verified-color, #999);
+}

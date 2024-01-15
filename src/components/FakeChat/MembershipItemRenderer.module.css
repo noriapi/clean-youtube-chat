@@ -1,0 +1,101 @@
+.ytLiveChatMembershipItemRenderer {
+  position: relative;
+  display: block;
+  --yt-live-chat-sponsor-header-color: #0a8043;
+  --yt-live-chat-sponsor-color: #0f9d58;
+  --yt-live-chat-sponsor-text-color: #fff;
+  --yt-live-chat-item-timestamp-display: var(
+    --yt-live-chat-paid-message-timestamp-display,
+    none
+  );
+  --yt-live-chat-moderator-color: var(--yt-spec-static-overlay-text-secondary);
+  --yt-live-chat-footer-button-text-color: #030303;
+  --yt-live-chat-footer-button-text-background-color: #fff;
+  padding: 4px 24px;
+}
+
+.card {
+  overflow: hidden;
+  font-size: 14px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  position: relative;
+  background-color: var(--yt-live-chat-sponsor-header-color);
+  padding: 8px 16px;
+  color: #fff;
+  min-height: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.authorPhoto {
+  width: 40px;
+  height: 40px;
+}
+
+.authorPhoto {
+  display: block;
+  margin-right: var(--yt-live-chat-author-photo-margin-right, 16px);
+  overflow: hidden;
+  border-radius: 50%;
+  flex: none;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
+  flex-basis: 0.000000001px;
+  align-items: baseline;
+}
+
+.ytLiveChatMembershipItemRenderer[has-primary-header-text]:not(
+    [dashboard-money-feed]
+  )
+  .ytLiveChatAuthorChip,
+.ytLiveChatMembershipItemRenderer[has-primary-header-text]:not(
+    [dashboard-money-feed]
+  )
+  .headerSubtext {
+  font-size: 12px;
+}
+
+.ytLiveChatMembershipItemRenderer:not([dashboard-money-feed])
+  .ytLiveChatAuthorChip {
+  --yt-live-chat-sponsor-color: var(--yt-live-chat-sponsor-text-color);
+  --yt-live-chat-secondary-text-color: var(--yt-live-chat-sponsor-text-color);
+}
+
+.headerPrimaryText {
+  word-wrap: break-word;
+  word-break: break-word;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+}
+
+.headerSubtext {
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.content {
+  background-color: var(--yt-live-chat-sponsor-color);
+  color: var(--yt-live-chat-sponsor-text-color);
+  padding: 8px 16px;
+  word-wrap: break-word;
+  word-break: break-word;
+  font-size: 15px;
+  line-height: 20px;
+}

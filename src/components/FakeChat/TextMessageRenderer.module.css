@@ -1,81 +1,51 @@
 .ytLiveChatTextMessageRenderer {
+  position: relative;
+  font-size: 13px;
   padding: 4px 24px;
-  contain: content;
   overflow: hidden;
+  contain: content;
+  --yt-endpoint-color: var(
+    --yt-live-chat-primary-text-color,
+    var(--yt-deprecated-luna-black)
+  );
+  --yt-endpoint-hover-color: var(
+    --yt-live-chat-primary-text-color,
+    var(--yt-endpoint-color)
+  );
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  font-size: 13px;
 }
 
-.ytLiveChatTextMessageRenderer[author-type="owner"] {
-  background-color: var(--yt-live-chat-message-highlight-background-color);
-}
-
-.ytLiveChatTextMessageRenderer:hover {
-  background-color: var(--yt-spec-additive-background);
-  overflow: initial;
-}
-
-.ytImageShadow {
+.authorPhoto {
+  display: block;
+  margin-right: var(--yt-live-chat-author-photo-margin-right, 16px);
   overflow: hidden;
   border-radius: 50%;
   flex: none;
-  background-color: transparent;
-  margin-right: 16px;
 }
 
 .content {
+  -ms-align-self: center;
   align-self: center;
   min-width: 0;
 }
 
 .ytLiveChatAuthorChip {
-  margin-right: 8px;
-  display: inline-flex;
-  align-items: baseline;
-}
-
-.authorName {
-  box-sizing: border-box;
-  border-radius: 2px;
-  color: var(--yt-live-chat-secondary-text-color);
-  font-weight: 500;
-}
-
-.ytLiveChatTextMessageRenderer[author-type="member"] .authorName {
-  color: var(--yt-live-chat-sponsor-color);
-}
-
-.ytLiveChatTextMessageRenderer[author-type="owner"] .authorName {
-  background-color: var(--yt-live-chat-author-chip-owner-background-color);
-  color: var(--yt-live-chat-author-chip-owner-text-color);
-  padding: 2px 4px;
-}
-
-.chatBadges {
-  white-space: nowrap;
-}
-
-.ytLiveChatAuthorBadgeRenderer {
-  margin: 0 0 0 2px;
-  /* vertical-align: sub; */
-  display: inline-block;
-}
-
-.image {
-  display: flex;
-  font-size: 10px;
-  justify-content: center;
-  align-items: center;
-  width: 16px;
-  height: 16px;
+  margin-right: var(--yt-live-chat-author-chip-margin-right, 8px);
 }
 
 .message {
-  color: var(--yt-live-chat-primary-text-color);
+  color: var(--yt-live-chat-primary-text-color, var(--yt-spec-text-primary));
   line-height: 16px;
   overflow: hidden;
+  overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+  font-style: var(
+    --yt-live-chat-text-message-renderer-message-message-style-font-style
+  );
+  opacity: var(
+    --yt-live-chat-text-message-renderer-message-message-style-opacity
+  );
 }

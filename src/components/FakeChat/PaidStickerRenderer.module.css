@@ -1,0 +1,139 @@
+.ytLiveChatPaidStickerRenderer {
+  --yt-live-chat-paid-sticker-chip-background-color: rgba(30, 136, 229, 1);
+  --yt-live-chat-paid-sticker-chip-text-color: rgba(255, 255, 255, 1);
+  --yt-live-chat-paid-sticker-background-color: rgba(30, 136, 229, 1);
+  --yt-live-chat-disable-highlight-message-author-name-color: rgba(
+    255,
+    255,
+    255,
+    0.7019607843137254
+  );
+}
+
+.ytLiveChatPaidStickerRenderer {
+  padding: 4px 24px;
+}
+
+.ytLiveChatPaidStickerRenderer {
+  display: block;
+  position: relative;
+  --yt-live-chat-paid-sticker-container-loaded-style-background-color: transparent;
+  --yt-live-chat-paid-sticker-container-loaded-style-opacity: 1;
+  --yt-live-chat-item-timestamp-display: none;
+}
+
+.ytLiveChatPaidStickerRenderer:not([dashboard-money-feed]) .card {
+  position: relative;
+  border-radius: 4px;
+  padding: 8px;
+  padding-left: 16px;
+  background-color: var(--yt-live-chat-paid-sticker-background-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  box-shadow:
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.ytLiveChatPaidStickerRenderer .card {
+  && {
+    border-radius: 12px;
+  }
+}
+
+.ytLiveChatPaidStickerRenderer:not([dashboard-money-feed]) .authorInfo {
+  max-height: 40px;
+}
+
+.ytLiveChatPaidStickerRenderer .authorInfo {
+  font-size: var(--yt-pdg-paid-stickers-author-name-font-size);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.authorPhoto {
+  display: block;
+  margin-right: var(--yt-live-chat-author-photo-margin-right, 16px);
+  overflow: hidden;
+  border-radius: 50%;
+  flex: none;
+}
+
+.content {
+  -ms-align-self: center;
+  align-self: center;
+  z-index: 0;
+}
+
+.contentPrimaryColumn {
+  display: inline-block;
+  position: relative;
+}
+
+.authorNameChip {
+  padding-right: 8px;
+  display: block;
+  font-weight: 500;
+  color: var(--yt-live-chat-disable-highlight-message-author-name-color);
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  display: -webkit-box;
+}
+
+.ytLiveChatPaidStickerRenderer:not([dashboard-money-feed]) .priceColumn {
+  display: flex;
+  flex-direction: row;
+  -ms-align-self: center;
+  align-self: center;
+}
+
+.ytLiveChatPaidStickerRenderer:not([dashboard-money-feed]) .purchaseAmountChip {
+  font-size: 15px;
+  padding-right: 8px;
+}
+
+.ytLiveChatPaidStickerRenderer .purchaseAmountChip {
+  height: 18px;
+  border-radius: 12px;
+  color: var(--yt-live-chat-paid-sticker-chip-text-color);
+  font-size: var(--yt-badge-font-size, 1.2rem);
+  font-weight: var(--yt-badge-font-weight, 500);
+  line-height: var(--yt-badge-line-height-size, 1.2rem);
+  letter-spacing: var(--yt-badge-letter-spacing, unset);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ytLiveChatPaidStickerRenderer:not([dashboard-money-feed]) .stickerContainer {
+  margin: 0;
+  margin-left: auto;
+}
+
+.ytLiveChatPaidStickerRenderer .stickerContainer {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: var(--yt-spec-text-primary);
+  opacity: 0.1;
+  margin-left: var(--yt-pdg-paid-stickers-margin-left);
+  margin-top: 4px;
+  z-index: 0;
+}
+
+.ytLiveChatPaidStickerRenderer .stickerContainer {
+  background-color: var(
+    --yt-live-chat-paid-sticker-container-loaded-style-background-color
+  );
+  opacity: var(--yt-live-chat-paid-sticker-container-loaded-style-opacity);
+}
+
+.svgIconSticker {
+  color: var(--yt-live-chat-paid-sticker-chip-text-color);
+}
