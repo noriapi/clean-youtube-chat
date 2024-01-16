@@ -1,5 +1,6 @@
 .selectable {
   border: transparent 4px dotted;
+  cursor: pointer;
 }
 
 .selectable:hover {
