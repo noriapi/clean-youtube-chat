@@ -125,7 +125,6 @@ const DEFAULT_CHAT_ITEMS = [
 ] satisfies ChatItemProps[];
 
 const FakeChat: Component<{
-  onClickTicker?: () => void;
   tickerItems?: TickerItemProps[];
   chatItems?: ChatItemProps[];
 }> = (props) => {
