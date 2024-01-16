@@ -11,6 +11,7 @@ const AuthorChip: Component<
     verified?: boolean;
     "is-highlighted"?: boolean;
     "disable-highlighting"?: boolean;
+    onClickName?: () => void;
   } & ComponentProps<"div">
 > = (props) => {
   const [local, div] = splitProps(props, [
@@ -31,7 +32,9 @@ const AuthorChip: Component<
           [styles.owner]: local["author-type"] === "owner",
         }}
       >
-        {local["author-name"]}
+        <span classList={{ [styles.selectable]: props.onClickName != null }}>
+          {local["author-name"]}
+        </span>
         <span id="chip-badges" class={styles.chipBadges}>
           <Show when={local["verified"]}>
             <AuthorBadgeRenderer

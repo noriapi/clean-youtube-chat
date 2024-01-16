@@ -1,6 +1,6 @@
 import { combineProps } from "@solid-primitives/props";
 import { ImCheckmark, ImSphere, ImWrench } from "solid-icons/im";
-import { Component, Show } from "solid-js";
+import { Component, ComponentProps, Show } from "solid-js";
 
 import styles from "./AuthorBadgeRenderer.module.css";
 
@@ -33,6 +33,9 @@ const AuthorBadgeRenderer: Component<
           {...combineProps(
             {
               class: styles.ytLiveChatAuthorBadgeRenderer,
+              classList: {
+                [styles.selectable]: props.onClick != null,
+              },
             },
             props,
           )}

@@ -51,3 +51,7 @@
 .chatBadges {
   white-space: nowrap;
 }
+
+.selectable {
+  composes: selectable from "./selectable.module.css";
+}

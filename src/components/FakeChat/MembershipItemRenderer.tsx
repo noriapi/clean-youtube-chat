@@ -14,11 +14,14 @@ const MembershipItemRenderer: Component<{
   "header-primary-text": string;
   "header-subtext": string;
   message: string;
+  onClick?: () => void;
 }> = (props) => {
   return (
     <div
       class={styles.ytLiveChatMembershipItemRenderer}
       has-primary-header-text
+      classList={{ [styles.selectable]: props.onClick != null }}
+      onClick={() => props.onClick?.()}
     >
       <div class={styles.card}>
         <div class={styles.header}>

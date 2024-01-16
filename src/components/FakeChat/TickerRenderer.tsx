@@ -37,9 +37,14 @@ export const DEFAULT_TICKER_ITEMS = [
 
 const TickerRenderer: Component<{
   items: TickerItemProps[];
+  onClick?: () => void;
 }> = (props) => {
   return (
-    <div class={styles.ytLiveChatTickerRenderer}>
+    <div
+      class={styles.ytLiveChatTickerRenderer}
+      classList={{ [styles.selectable]: props.onClick != null }}
+      onClick={() => props.onClick?.()}
+    >
       <div class={styles.items}>
         <For each={props.items}>
           {(item) => <TickerPaidMessageItemRenderer {...item} />}

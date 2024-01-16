@@ -99,3 +99,7 @@
   font-size: 15px;
   line-height: 20px;
 }
+
+.selectable {
+  composes: selectable from "./selectable.module.css";
+}

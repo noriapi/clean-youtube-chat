@@ -16,3 +16,7 @@
 .ytLiveChatAuthorBadgeRenderer[data-type="verified"] {
   color: var(--yt-live-chat-verified-color, #999);
 }
+
+.selectable {
+  composes: selectable from "./selectable.module.css";
+}

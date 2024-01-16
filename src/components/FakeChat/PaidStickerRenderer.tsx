@@ -13,9 +13,14 @@ const PaidStickerRenderer: Component<{
   verified?: boolean;
   "purchase-amount": string;
   "disable-highlighting"?: boolean;
+  onClick?: () => void;
 }> = (props) => {
   return (
-    <div class={styles.ytLiveChatPaidStickerRenderer}>
+    <div
+      class={styles.ytLiveChatPaidStickerRenderer}
+      classList={{ [styles.selectable]: props.onClick != null }}
+      onClick={() => props.onClick?.()}
+    >
       <div class={styles.card}>
         <div class={styles.authorInfo}>
           <ImageShadow class={styles.authorPhoto}>

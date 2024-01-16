@@ -1,0 +1,7 @@
+.selectable {
+  border: transparent 4px dotted;
+}
+
+.selectable:hover {
+  border-color: red;
+}
