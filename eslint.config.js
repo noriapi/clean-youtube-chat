@@ -97,6 +97,9 @@ const scriptConfig = {
 };
 
 /** @type { import("eslint").Linter.FlatConfig[] } */
+const storiesConfigs = compat.extends(["plugin:storybook/recommended"]);
+
+/** @type { import("eslint").Linter.FlatConfig[] } */
 export default [
   {
     files: ["**/*.{js,jsx,ts,tsx}"],
@@ -112,5 +115,6 @@ export default [
   solidConfig,
   configConfig,
   scriptConfig,
+  ...storiesConfigs,
   prettier,
 ];
