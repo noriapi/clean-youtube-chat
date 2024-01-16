@@ -137,3 +137,7 @@
 .svgIconSticker {
   color: var(--yt-live-chat-paid-sticker-chip-text-color);
 }
+
+.selectable {
+  composes: selectable from "./selectable.module.css";
+}
