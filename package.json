@@ -60,7 +60,7 @@
     "typescript-plugin-css-modules": "^5.0.2",
     "vite": "^5.0.11",
     "vite-plugin-solid": "^2.8.0",
-    "vitest": "^1.2.0",
+    "vitest": "^1.2.1",
     "wxt": "^0.14.3"
   },
   "packageManager": "pnpm@8.14.1",
