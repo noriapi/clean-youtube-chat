@@ -36,6 +36,23 @@ const toggleSNH = (s: "show" | "nohighlight" | "hide") => {
 //     onClick: undefined,
 //   }) satisfies TickerRendererProps;
 
+const createChatItemEngagement = (
+  config: Store<Config>,
+  setConfig: SetStoreFunction<Config>,
+) =>
+  ({
+    type: "engagement",
+    props: {
+      message: "This is an engagement message!",
+
+      get hide() {
+        return config.engagement === "hide";
+      },
+
+      onClick: () => setConfig("engagement", toggleSH),
+    },
+  }) satisfies ChatItemProps;
+
 const createChatItemNormalUser = (
   config: Store<Config>,
   setConfig: SetStoreFunction<Config>,
@@ -246,6 +263,7 @@ const createFakeChatProps = (
     // tickerProps: createTickerProps(config, setConfig),
     chatProps: {
       items: [
+        createChatItemEngagement(config, setConfig),
         createChatItemNormalUser(config, setConfig),
         createChatItemModerator(config, setConfig),
         createChatItemOwner(config, setConfig),
