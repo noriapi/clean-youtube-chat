@@ -1,3 +1,7 @@
+.fakeChat {
+  user-select: none;
+}
+
 .separator {
   border-bottom: var(--yt-live-chat-header-bottom-border, none);
 }
