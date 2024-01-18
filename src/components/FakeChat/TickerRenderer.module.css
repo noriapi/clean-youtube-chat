@@ -1,3 +1,11 @@
+.selectable {
+  composes: selectable from "./util.module.css";
+}
+
+.hidden {
+  composes: hidden from "./util.module.css";
+}
+
 .ytLiveChatTickerRenderer {
   display: block;
   background-color: var(--yt-live-chat-header-background-color);
@@ -63,8 +71,4 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 96px;
-}
-
-.selectable {
-  composes: selectable from "./util.module.css";
 }

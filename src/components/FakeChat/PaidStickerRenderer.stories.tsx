@@ -16,6 +16,7 @@ export const Default = {
     "author-name": "Normal User",
     "purchase-amount": "$1.00",
     "disable-highlighting": true,
+    hide: false,
   },
 } satisfies Story;
 

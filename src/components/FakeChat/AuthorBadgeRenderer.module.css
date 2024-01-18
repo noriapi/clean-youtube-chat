@@ -1,3 +1,11 @@
+.selectable {
+  composes: selectable from "./util.module.css";
+}
+
+.hidden {
+  composes: hidden from "./util.module.css";
+}
+
 .ytLiveChatAuthorBadgeRenderer {
   margin: 0 0 0 2px;
   vertical-align: sub;
@@ -15,8 +23,4 @@
 
 .ytLiveChatAuthorBadgeRenderer[data-type="verified"] {
   color: var(--yt-live-chat-verified-color, #999);
-}
-
-.selectable {
-  composes: selectable from "./util.module.css";
 }

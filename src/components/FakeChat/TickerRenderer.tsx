@@ -32,11 +32,15 @@ export type TickerItemProps = ComponentProps<
 const TickerRenderer: Component<{
   items?: TickerItemProps[];
   onClick?: () => void;
+  hide?: boolean;
 }> = (props) => {
   return (
     <div
       class={styles.ytLiveChatTickerRenderer}
-      classList={{ [styles.selectable]: props.onClick != null }}
+      classList={{
+        [styles.selectable]: props.onClick != null,
+        [styles.hidden]: props.hide,
+      }}
       onClick={() => props.onClick?.()}
     >
       <div class={styles.items}>

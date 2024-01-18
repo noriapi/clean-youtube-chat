@@ -15,12 +15,16 @@ const MembershipItemRenderer: Component<{
   "header-subtext": string;
   message: string;
   onClick?: () => void;
+  hide?: boolean;
 }> = (props) => {
   return (
     <div
       class={styles.ytLiveChatMembershipItemRenderer}
       has-primary-header-text
-      classList={{ [styles.selectable]: props.onClick != null }}
+      classList={{
+        [styles.selectable]: props.onClick != null,
+        [styles.hidden]: props.hide,
+      }}
       onClick={() => props.onClick?.()}
     >
       <div class={styles.card}>

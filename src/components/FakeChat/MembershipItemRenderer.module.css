@@ -1,3 +1,11 @@
+.selectable {
+  composes: selectable from "./util.module.css";
+}
+
+.hidden {
+  composes: hidden from "./util.module.css";
+}
+
 .ytLiveChatMembershipItemRenderer {
   position: relative;
   display: block;
@@ -98,8 +106,4 @@
   word-break: break-word;
   font-size: 15px;
   line-height: 20px;
-}
-
-.selectable {
-  composes: selectable from "./util.module.css";
 }

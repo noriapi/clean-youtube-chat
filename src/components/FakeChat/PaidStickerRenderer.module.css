@@ -1,3 +1,11 @@
+.selectable {
+  composes: selectable from "./util.module.css";
+}
+
+.hidden {
+  composes: hidden from "./util.module.css";
+}
+
 .ytLiveChatPaidStickerRenderer {
   --yt-live-chat-paid-sticker-chip-background-color: rgba(30, 136, 229, 1);
   --yt-live-chat-paid-sticker-chip-text-color: rgba(255, 255, 255, 1);
@@ -136,8 +144,4 @@
 
 .svgIconSticker {
   color: var(--yt-live-chat-paid-sticker-chip-text-color);
-}
-
-.selectable {
-  composes: selectable from "./util.module.css";
 }

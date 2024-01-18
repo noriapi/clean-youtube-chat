@@ -17,6 +17,7 @@ export const Default = {
     "header-primary-text": "Member for 7 months",
     "header-subtext": "Step 1",
     message: "This is a member milestone chat!",
+    hide: false,
   },
 } satisfies Story;
 

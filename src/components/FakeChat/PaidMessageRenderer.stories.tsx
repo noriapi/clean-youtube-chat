@@ -17,6 +17,7 @@ export const Default = {
     message: "This is a paid message!",
     "purchase-amount": "$5.00",
     "disable-highlighting": true,
+    hide: false,
   },
 } satisfies Story;
 
