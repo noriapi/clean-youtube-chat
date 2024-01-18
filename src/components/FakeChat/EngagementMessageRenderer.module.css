@@ -1,0 +1,69 @@
+.selectable {
+  composes: selectable from "./util.module.css";
+}
+
+.hidden {
+  composes: hidden from "./util.module.css";
+}
+
+.ytLiveChatViewerEngagementMessageRenderer {
+  display: block;
+  padding: 4px 24px;
+  font-size: 12px;
+  line-height: 16px;
+  overflow: hidden;
+  --yt-endpoint-color: #2196f3;
+  --yt-endpoint-visited-color: #2196f3;
+  --yt-endpoint-hover-color: var(--yt-live-chat-primary-text-color);
+}
+
+.card {
+  position: relative;
+  background-color: var(--yt-live-chat-vem-background-color);
+  border-radius: 4px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  display: inline-flexbox;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  vertical-align: middle;
+  fill: var(--iron-icon-fill-color, currentcolor);
+  stroke: var(--iron-icon-stroke-color, none);
+  width: var(--iron-icon-width, 24px);
+  height: var(--iron-icon-height, 24px);
+  -webkit-animation: var(--iron-icon-animation);
+  animation: var(--iron-icon-animation);
+  margin-top: var(--iron-icon-margin-top);
+  margin-right: var(--iron-icon-margin-right);
+  margin-bottom: var(--iron-icon-margin-bottom);
+  margin-left: var(--iron-icon-margin-left);
+  padding: var(--iron-icon-padding);
+}
+
+.icon {
+  color: var(--yt-spec-static-brand-red);
+  margin-right: 16px;
+  flex: none;
+}
+
+.content {
+  flex: 1;
+  flex-basis: 0.000000001px;
+  -ms-align-self: center;
+  align-self: center;
+}
+
+.message {
+  color: var(--yt-live-chat-primary-text-color);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+
+  white-space: pre-wrap;
+}
