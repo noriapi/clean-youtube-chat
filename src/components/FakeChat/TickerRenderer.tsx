@@ -30,7 +30,7 @@ export type TickerItemProps = ComponentProps<
 >;
 
 const TickerRenderer: Component<{
-  items: TickerItemProps[];
+  items?: TickerItemProps[];
   onClick?: () => void;
 }> = (props) => {
   return (
