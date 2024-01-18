@@ -22,6 +22,7 @@ const authorBadgeFromType = (type?: AuthorType | "verified") => {
 const AuthorBadgeRenderer: Component<
   {
     ["data-type"]?: AuthorType | "verified";
+    hide?: boolean;
   } & Omit<ComponentProps<"div">, "data-type">
 > = (props) => {
   const Icon = () => authorBadgeFromType(props["data-type"]);
@@ -34,6 +35,7 @@ const AuthorBadgeRenderer: Component<
             class: styles.ytLiveChatAuthorBadgeRenderer,
             classList: {
               [styles.selectable]: props.onClick != null,
+              [styles.hidden]: props.hide,
             },
           })}
         >

@@ -13,10 +13,15 @@ const TextMessageRenderer: Component<{
   message: string;
   "is-highlighted"?: boolean;
   onClickIcon?: () => void;
+  hideIcon?: boolean;
   onClickName?: () => void;
+  hideName?: boolean;
   onClickChipBadge?: () => void;
+  hideChipBadge?: boolean;
   onClickChatBadge?: () => void;
+  hideChatBadge?: boolean;
   onClickMessage?: () => void;
+  hideMessage?: boolean;
 }> = (props) => {
   return (
     <div
@@ -25,7 +30,10 @@ const TextMessageRenderer: Component<{
     >
       <ImageShadow
         class={styles.authorPhoto}
-        classList={{ [styles.selectable]: props.onClickIcon != null }}
+        classList={{
+          [styles.selectable]: props.onClickIcon != null,
+          [styles.hidden]: props.hideIcon,
+        }}
         onClick={props.onClickIcon}
       >
         <Avatar name={props["author-name"]} size={24} />
@@ -37,7 +45,10 @@ const TextMessageRenderer: Component<{
         <span
           id="message"
           class={styles.message}
-          classList={{ [styles.selectable]: props.onClickMessage != null }}
+          classList={{
+            [styles.selectable]: props.onClickMessage != null,
+            [styles.hidden]: props.hideMessage,
+          }}
           onClick={() => props.onClickMessage?.()}
         >
           {props["message"]}

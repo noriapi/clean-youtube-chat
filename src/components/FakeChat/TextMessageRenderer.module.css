@@ -1,3 +1,11 @@
+.selectable {
+  composes: selectable from "./util.module.css";
+}
+
+.hidden {
+  composes: hidden from "./util.module.css";
+}
+
 .ytLiveChatTextMessageRenderer {
   position: relative;
   font-size: 13px;
@@ -48,8 +56,4 @@
   opacity: var(
     --yt-live-chat-text-message-renderer-message-message-style-opacity
   );
-}
-
-.selectable {
-  composes: selectable from "./util.module.css";
 }

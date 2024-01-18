@@ -16,6 +16,7 @@ export const Default = {
       { "author-name": "Bob" },
       { "author-name": "Chris" },
     ],
+    hide: false,
   },
 } satisfies Story;
 

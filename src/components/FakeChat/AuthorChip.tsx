@@ -12,18 +12,38 @@ const AuthorChip: Component<
     "is-highlighted"?: boolean;
     "disable-highlighting"?: boolean;
     onClickName?: () => void;
+    hideName?: boolean;
     onClickChipBadge?: () => void;
+    hideChipBadge?: boolean;
     onClickChatBadge?: () => void;
+    hideChatBadge?: boolean;
   } & ComponentProps<"div">
 > = (props) => {
   const [local, div] = splitProps(props, [
     "author-type",
     "author-name",
     "verified",
+    "is-highlighted",
+    "disable-highlighting",
+    "onClickName",
+    "hideName",
+    "onClickChipBadge",
+    "hideChipBadge",
+    "onClickChatBadge",
+    "hideChatBadge",
   ]);
 
   return (
-    <div {...combineProps({ class: styles.ytLiveChatAuthorChip }, div)}>
+    <div
+      {...combineProps(
+        {
+          class: styles.ytLiveChatAuthorChip,
+          "is-highlighted": local["is-highlighted"],
+          "disable-highlighting": local["disable-highlighting"],
+        },
+        div,
+      )}
+    >
       <span id="prepend-chat-badges" />
       <span
         id="author-name"
@@ -35,8 +55,11 @@ const AuthorChip: Component<
         }}
       >
         <span
-          classList={{ [styles.selectable]: props.onClickName != null }}
-          onClick={props.onClickName}
+          classList={{
+            [styles.selectable]: local.onClickName != null,
+            [styles.hidden]: local.hideName,
+          }}
+          onClick={local.onClickName}
         >
           {local["author-name"]}
         </span>
@@ -45,7 +68,8 @@ const AuthorChip: Component<
             <AuthorBadgeRenderer
               class={styles.ytLiveChatAuthorBadgeRenderer}
               data-type="verified"
-              onClick={props.onClickChipBadge}
+              onClick={local.onClickChipBadge}
+              hide={local.hideChipBadge}
             />
           </Show>
         </span>
@@ -53,7 +77,8 @@ const AuthorChip: Component<
       <span id="chat-badges" class={styles.chatBadges}>
         <AuthorBadgeRenderer
           data-type={local["author-type"]}
-          onClick={props.onClickChatBadge}
+          onClick={local.onClickChatBadge}
+          hide={local.hideChatBadge}
         />
       </span>
     </div>

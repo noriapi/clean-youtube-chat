@@ -6,3 +6,7 @@
 .selectable:hover {
   border-color: red;
 }
+
+.hidden {
+  opacity: 0.2;
+}
