@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "storybook-solidjs-vite";
-import viteTsconfigPaths from "vite-tsconfig-paths";
 import { mergeConfig } from "vite";
+import viteTsconfigPaths from "vite-tsconfig-paths";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],

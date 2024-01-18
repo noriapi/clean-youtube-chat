@@ -97,7 +97,7 @@ const scriptConfig = {
 };
 
 /** @type { import("eslint").Linter.FlatConfig[] } */
-const storiesConfigs = compat.extends(["plugin:storybook/recommended"]);
+const storiesConfigs = compat.extends("plugin:storybook/recommended");
 
 /** @type { import("eslint").Linter.FlatConfig[] } */
 export default [
