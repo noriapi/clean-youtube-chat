@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "storybook-solidjs";
 
+import * as engagement from "./EngagementMessageRenderer.stories";
 import FakeChat from "./FakeChat";
 import * as membership from "./MembershipItemRenderer.stories";
 import * as paid from "./PaidMessageRenderer.stories";
@@ -18,6 +19,7 @@ export const Default = {
   args: {
     tickerProps: ticker.Default.args,
     chatItems: [
+      { type: "engagement", props: engagement.Default.args },
       { type: "text", props: text.NormalUser.args },
       { type: "text", props: text.VerifiedUser.args },
       { type: "text", props: text.Member.args },
@@ -34,6 +36,7 @@ export const Clickable = {
   args: {
     tickerProps: ticker.Clickable.args,
     chatItems: [
+      { type: "engagement", props: engagement.Clickable.args },
       { type: "text", props: text.ClickableNormalUser.args },
       { type: "text", props: text.ClickableVerifiedUser.args },
       { type: "text", props: text.ClickableMember.args },

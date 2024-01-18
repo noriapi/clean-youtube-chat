@@ -2,6 +2,7 @@ import "./colors.css";
 
 import { Component, ComponentProps, For, Match, Switch } from "solid-js";
 
+import EngagementMessageRenderer from "./EngagementMessageRenderer";
 import styles from "./FakeChat.module.css";
 import MembershipItemRenderer from "./MembershipItemRenderer";
 import PaidMessageRenderer from "./PaidMessageRenderer";
@@ -25,6 +26,10 @@ export type ChatItemProps =
   | {
       type: "membership";
       props: ComponentProps<typeof MembershipItemRenderer>;
+    }
+  | {
+      type: "engagement";
+      props: ComponentProps<typeof EngagementMessageRenderer>;
     };
 
 const ChatItemRenderer: Component<ChatItemProps> = (props) => {
@@ -41,6 +46,9 @@ const ChatItemRenderer: Component<ChatItemProps> = (props) => {
       </Match>
       <Match when={props.type === "membership" && props.props}>
         {(p) => <MembershipItemRenderer {...p()} />}
+      </Match>
+      <Match when={props.type === "engagement" && props.props}>
+        {(p) => <EngagementMessageRenderer {...p()} />}
       </Match>
     </Switch>
   );
