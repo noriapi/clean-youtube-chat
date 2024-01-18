@@ -16,7 +16,7 @@ type Story = StoryObj<typeof FakeChat>;
 
 export const Default = {
   args: {
-    tickerItems: ticker.Default.args.items,
+    tickerProps: ticker.Default.args,
     chatItems: [
       { type: "text", props: text.NormalUser.args },
       { type: "text", props: text.VerifiedUser.args },
@@ -32,7 +32,7 @@ export const Default = {
 
 export const Clickable = {
   args: {
-    tickerItems: ticker.Clickable.args.items,
+    tickerProps: ticker.Clickable.args,
     chatItems: [
       { type: "text", props: text.ClickableNormalUser.args },
       { type: "text", props: text.ClickableVerifiedUser.args },
@@ -44,4 +44,4 @@ export const Clickable = {
       { type: "membership", props: membership.Clickable.args },
     ],
   },
-};
+} satisfies Story;

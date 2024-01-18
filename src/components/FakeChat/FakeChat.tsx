@@ -7,7 +7,7 @@ import MembershipItemRenderer from "./MembershipItemRenderer";
 import PaidMessageRenderer from "./PaidMessageRenderer";
 import PaidStickerRenderer from "./PaidStickerRenderer";
 import TextMessageRenderer from "./TextMessageRenderer";
-import TickerRenderer, { TickerItemProps } from "./TickerRenderer";
+import TickerRenderer from "./TickerRenderer";
 
 type ChatItemProps =
   | {
@@ -47,13 +47,13 @@ const ChatItemRenderer: Component<ChatItemProps> = (props) => {
 };
 
 const FakeChat: Component<{
-  tickerItems?: TickerItemProps[];
+  tickerProps?: ComponentProps<typeof TickerRenderer>;
   chatItems?: ChatItemProps[];
 }> = (props) => {
   return (
     <div>
       <div id="ticker">
-        <TickerRenderer items={props.tickerItems ?? []} />
+        <TickerRenderer {...props.tickerProps} />
       </div>
       <div class={styles.separator} />
       <div id="chat">
