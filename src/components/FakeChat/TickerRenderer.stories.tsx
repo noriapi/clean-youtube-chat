@@ -22,7 +22,7 @@ export const Default = {
 
 export const Clickable = {
   args: {
-    items: Default.args.items,
+    ...Default.args,
     onClick: action("on-click"),
   },
 } satisfies Story;
