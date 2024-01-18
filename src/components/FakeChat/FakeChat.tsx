@@ -7,9 +7,9 @@ import MembershipItemRenderer from "./MembershipItemRenderer";
 import PaidMessageRenderer from "./PaidMessageRenderer";
 import PaidStickerRenderer from "./PaidStickerRenderer";
 import TextMessageRenderer from "./TextMessageRenderer";
-import TickerRenderer from "./TickerRenderer";
+import TickerRenderer, { TickerRendererProps } from "./TickerRenderer";
 
-type ChatItemProps =
+export type ChatItemProps =
   | {
       type: "text";
       props: ComponentProps<typeof TextMessageRenderer>;
@@ -47,7 +47,7 @@ const ChatItemRenderer: Component<ChatItemProps> = (props) => {
 };
 
 const FakeChat: Component<{
-  tickerProps?: ComponentProps<typeof TickerRenderer>;
+  tickerProps?: TickerRendererProps;
   chatItems?: ChatItemProps[];
 }> = (props) => {
   return (
