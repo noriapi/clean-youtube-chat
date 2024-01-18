@@ -59,7 +59,7 @@ const AuthorChip: Component<
             [styles.selectable]: local.onClickName != null,
             [styles.hidden]: local.hideName,
           }}
-          onClick={local.onClickName}
+          onClick={() => local.onClickName?.()}
         >
           {local["author-name"]}
         </span>

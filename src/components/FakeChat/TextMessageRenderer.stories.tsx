@@ -1,6 +1,6 @@
+import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "storybook-solidjs";
 
-import { action } from "@storybook/addon-actions";
 import TextMessageRenderer from "./TextMessageRenderer";
 
 const meta = {

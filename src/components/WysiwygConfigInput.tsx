@@ -1,8 +1,9 @@
 import { Component, ComponentProps } from "solid-js";
+import { SetStoreFunction, Store } from "solid-js/store";
+
+import { Config } from "~/lib/config";
 
 import FakeChat from "./FakeChat";
-import { SetStoreFunction, Store } from "solid-js/store";
-import { Config } from "~/lib/config";
 import { ChatItemProps } from "./FakeChat/FakeChat";
 
 const toggleSH = (s: "show" | "hide") => (s === "show" ? "hide" : "show");
@@ -257,6 +258,7 @@ const WysiwygConfigInput: Component<{
   value: Store<Config>;
   setValue: SetStoreFunction<Config>;
 }> = (props) => {
+  // eslint-disable-next-line solid/reactivity
   const fakeChatProps = createFakeChatProps(props.value, props.setValue);
 
   return <FakeChat {...fakeChatProps} />;

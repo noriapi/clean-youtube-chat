@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "storybook-solidjs";
 
 import FakeChat from "./FakeChat";
-import * as ticker from "./TickerRenderer.stories";
-import * as text from "./TextMessageRenderer.stories";
+import * as membership from "./MembershipItemRenderer.stories";
 import * as paid from "./PaidMessageRenderer.stories";
 import * as sticker from "./PaidStickerRenderer.stories";
-import * as membership from "./MembershipItemRenderer.stories";
+import * as text from "./TextMessageRenderer.stories";
+import * as ticker from "./TickerRenderer.stories";
 
 const meta = {
   component: FakeChat,
