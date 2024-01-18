@@ -65,10 +65,10 @@ const createChatItemNormalUser = (
       message: "Hello!",
 
       get hideIcon() {
-        return config.icon.others == "hide";
+        return config.icon.others === "hide";
       },
       get hideName() {
-        return config.name.others == "hide";
+        return config.name.others === "hide";
       },
       hideChipBadge: false,
       hideChatBadge: false,
