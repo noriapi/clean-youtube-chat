@@ -30,15 +30,12 @@ const AuthorBadgeRenderer: Component<
     <Show when={Icon()} keyed>
       {(Icon) => (
         <div
-          {...combineProps(
-            {
-              class: styles.ytLiveChatAuthorBadgeRenderer,
-              classList: {
-                [styles.selectable]: props.onClick != null,
-              },
+          {...combineProps(props, {
+            class: styles.ytLiveChatAuthorBadgeRenderer,
+            classList: {
+              [styles.selectable]: props.onClick != null,
             },
-            props,
-          )}
+          })}
         >
           <div id="image">
             <Icon size={16} />

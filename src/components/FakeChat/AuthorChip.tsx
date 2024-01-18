@@ -12,6 +12,8 @@ const AuthorChip: Component<
     "is-highlighted"?: boolean;
     "disable-highlighting"?: boolean;
     onClickName?: () => void;
+    onClickChipBadge?: () => void;
+    onClickChatBadge?: () => void;
   } & ComponentProps<"div">
 > = (props) => {
   const [local, div] = splitProps(props, [
@@ -32,7 +34,10 @@ const AuthorChip: Component<
           [styles.owner]: local["author-type"] === "owner",
         }}
       >
-        <span classList={{ [styles.selectable]: props.onClickName != null }}>
+        <span
+          classList={{ [styles.selectable]: props.onClickName != null }}
+          onClick={props.onClickName}
+        >
           {local["author-name"]}
         </span>
         <span id="chip-badges" class={styles.chipBadges}>
@@ -40,12 +45,16 @@ const AuthorChip: Component<
             <AuthorBadgeRenderer
               class={styles.ytLiveChatAuthorBadgeRenderer}
               data-type="verified"
+              onClick={props.onClickChipBadge}
             />
           </Show>
         </span>
       </span>
       <span id="chat-badges" class={styles.chatBadges}>
-        <AuthorBadgeRenderer data-type={local["author-type"]} />
+        <AuthorBadgeRenderer
+          data-type={local["author-type"]}
+          onClick={props.onClickChatBadge}
+        />
       </span>
     </div>
   );

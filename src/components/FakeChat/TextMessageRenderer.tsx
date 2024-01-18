@@ -14,6 +14,8 @@ const TextMessageRenderer: Component<{
   "is-highlighted"?: boolean;
   onClickIcon?: () => void;
   onClickName?: () => void;
+  onClickChipBadge?: () => void;
+  onClickChatBadge?: () => void;
   onClickMessage?: () => void;
 }> = (props) => {
   return (
