@@ -139,5 +139,5 @@
 }
 
 .selectable {
-  composes: selectable from "./selectable.module.css";
+  composes: selectable from "./util.module.css";
 }
