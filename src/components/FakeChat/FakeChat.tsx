@@ -11,7 +11,7 @@ const FakeChat: Component<{
   chatProps?: ChatRendererProps;
 }> = (props) => {
   return (
-    <div>
+    <div class={styles.fakeChat}>
       <div id="ticker">
         <TickerRenderer {...props.tickerProps} />
       </div>
