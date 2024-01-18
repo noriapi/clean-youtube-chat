@@ -52,4 +52,5 @@ const TickerRenderer: Component<{
   );
 };
 
+export type TickerRendererProps = ComponentProps<typeof TickerRenderer>;
 export default TickerRenderer;
