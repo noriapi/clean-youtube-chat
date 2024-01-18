@@ -29,12 +29,6 @@ export type TickerItemProps = ComponentProps<
   typeof TickerPaidMessageItemRenderer
 >;
 
-export const DEFAULT_TICKER_ITEMS = [
-  { "author-name": "Alice" },
-  { "author-name": "Bob" },
-  { "author-name": "Chris" },
-] satisfies TickerItemProps[];
-
 const TickerRenderer: Component<{
   items: TickerItemProps[];
   onClick?: () => void;

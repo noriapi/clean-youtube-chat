@@ -1,6 +1,9 @@
 :root {
   font-size: 10px;
   font-family: Roboto, Arial, sans-serif;
+
+  background: var(--yt-live-chat-background-color);
+  color: var(--yt-live-chat-primary-text-color);
 }
 
 :root {

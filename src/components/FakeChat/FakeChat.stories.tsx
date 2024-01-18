@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from "storybook-solidjs";
 
 import FakeChat from "./FakeChat";
+import * as ticker from "./TickerRenderer.stories";
+import * as text from "./TextMessageRenderer.stories";
+import * as paid from "./PaidMessageRenderer.stories";
+import * as sticker from "./PaidStickerRenderer.stories";
+import * as membership from "./MembershipItemRenderer.stories";
 
 const meta = {
   component: FakeChat,
@@ -9,81 +14,34 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof FakeChat>;
 
-export const Default: Story = {
+export const Default = {
   args: {
+    tickerItems: ticker.Default.args.items,
     chatItems: [
-      {
-        type: "text",
-        props: {
-          "author-type": "",
-          "author-name": "Normal User",
-          message: "Hello!",
-        },
-      },
-      {
-        type: "text",
-        props: {
-          "author-type": "",
-          "author-name": "Verified User",
-          verified: true,
-          message: "Hello!",
-          "is-highlighted": true,
-        },
-      },
-      {
-        type: "text",
-        props: {
-          "author-type": "member",
-          "author-name": "Member",
-          message: "Hi there!",
-        },
-      },
-      {
-        type: "text",
-        props: {
-          "author-type": "moderator",
-          "author-name": "Moderator",
-          message: "Howdy!",
-        },
-      },
-      {
-        type: "text",
-        props: {
-          "author-type": "owner",
-          "author-name": "Channel Owner",
-          message: "Hey, guys!",
-          "is-highlighted": true,
-        },
-      },
-      {
-        type: "paid",
-        props: {
-          "author-type": "",
-          "author-name": "Normal User",
-          message: "This is a paid message!",
-          "purchase-amount": "$5.00",
-          "disable-highlighting": true,
-        },
-      },
-      {
-        type: "sticker",
-        props: {
-          "author-type": "",
-          "author-name": "Normal User",
-          "purchase-amount": "$1.00",
-          "disable-highlighting": true,
-        },
-      },
-      {
-        type: "membership",
-        props: {
-          "author-type": "member",
-          "author-name": "Member",
-          "header-primary-text": "Member for 7 months",
-          "header-subtext": "Step 1",
-          message: "This is a member milestone chat!",
-        },
-      },
+      { type: "text", props: text.NormalUser.args },
+      { type: "text", props: text.VerifiedUser.args },
+      { type: "text", props: text.Member.args },
+      { type: "text", props: text.Moderator.args },
+      { type: "text", props: text.Owner.args },
+      { type: "paid", props: paid.Default.args },
+      { type: "sticker", props: sticker.Default.args },
+      { type: "membership", props: membership.Default.args },
+    ],
+  },
+} satisfies Story;
+
+export const Clickable = {
+  args: {
+    tickerItems: ticker.Clickable.args.items,
+    chatItems: [
+      { type: "text", props: text.ClickableNormalUser.args },
+      { type: "text", props: text.ClickableVerifiedUser.args },
+      { type: "text", props: text.ClickableMember.args },
+      { type: "text", props: text.ClickableModerator.args },
+      { type: "text", props: text.ClickableOwner.args },
+      { type: "paid", props: paid.Clickable.args },
+      { type: "sticker", props: sticker.Clickable.args },
+      { type: "membership", props: membership.Clickable.args },
     ],
   },
 };
