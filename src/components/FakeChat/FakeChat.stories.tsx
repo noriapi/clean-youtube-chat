@@ -18,33 +18,37 @@ type Story = StoryObj<typeof FakeChat>;
 export const Default = {
   args: {
     tickerProps: ticker.Default.args,
-    chatItems: [
-      { type: "engagement", props: engagement.Default.args },
-      { type: "text", props: text.NormalUser.args },
-      { type: "text", props: text.VerifiedUser.args },
-      { type: "text", props: text.Member.args },
-      { type: "text", props: text.Moderator.args },
-      { type: "text", props: text.Owner.args },
-      { type: "paid", props: paid.Default.args },
-      { type: "sticker", props: sticker.Default.args },
-      { type: "membership", props: membership.Default.args },
-    ],
+    chatProps: {
+      items: [
+        { type: "engagement", props: engagement.Default.args },
+        { type: "text", props: text.NormalUser.args },
+        { type: "text", props: text.VerifiedUser.args },
+        { type: "text", props: text.Member.args },
+        { type: "text", props: text.Moderator.args },
+        { type: "text", props: text.Owner.args },
+        { type: "paid", props: paid.Default.args },
+        { type: "sticker", props: sticker.Default.args },
+        { type: "membership", props: membership.Default.args },
+      ],
+    },
   },
 } satisfies Story;
 
 export const Clickable = {
   args: {
     tickerProps: ticker.Clickable.args,
-    chatItems: [
-      { type: "engagement", props: engagement.Clickable.args },
-      { type: "text", props: text.ClickableNormalUser.args },
-      { type: "text", props: text.ClickableVerifiedUser.args },
-      { type: "text", props: text.ClickableMember.args },
-      { type: "text", props: text.ClickableModerator.args },
-      { type: "text", props: text.ClickableOwner.args },
-      { type: "paid", props: paid.Clickable.args },
-      { type: "sticker", props: sticker.Clickable.args },
-      { type: "membership", props: membership.Clickable.args },
-    ],
+    chatProps: {
+      items: [
+        { type: "engagement", props: engagement.Clickable.args },
+        { type: "text", props: text.ClickableNormalUser.args },
+        { type: "text", props: text.ClickableVerifiedUser.args },
+        { type: "text", props: text.ClickableMember.args },
+        { type: "text", props: text.ClickableModerator.args },
+        { type: "text", props: text.ClickableOwner.args },
+        { type: "paid", props: paid.Clickable.args },
+        { type: "sticker", props: sticker.Clickable.args },
+        { type: "membership", props: membership.Clickable.args },
+      ],
+    },
   },
 } satisfies Story;

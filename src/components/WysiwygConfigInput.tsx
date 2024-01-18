@@ -4,7 +4,7 @@ import { SetStoreFunction, Store } from "solid-js/store";
 import { Config } from "~/lib/config";
 
 import FakeChat from "./FakeChat";
-import { ChatItemProps } from "./FakeChat/FakeChat";
+import { ChatItemProps } from "./FakeChat/ChatRenderer";
 
 const toggleSH = (s: "show" | "hide") => (s === "show" ? "hide" : "show");
 const toggleSNH = (s: "show" | "nohighlight" | "hide") => {
@@ -244,14 +244,16 @@ const createFakeChatProps = (
 ) =>
   ({
     // tickerProps: createTickerProps(config, setConfig),
-    chatItems: [
-      createChatItemNormalUser(config, setConfig),
-      createChatItemModerator(config, setConfig),
-      createChatItemOwner(config, setConfig),
-      createChatItemPaid(config, setConfig),
-      createChatItemSticker(config, setConfig),
-      createChatItemMembership(config, setConfig),
-    ],
+    chatProps: {
+      items: [
+        createChatItemNormalUser(config, setConfig),
+        createChatItemModerator(config, setConfig),
+        createChatItemOwner(config, setConfig),
+        createChatItemPaid(config, setConfig),
+        createChatItemSticker(config, setConfig),
+        createChatItemMembership(config, setConfig),
+      ],
+    },
   }) satisfies ComponentProps<typeof FakeChat>;
 
 const WysiwygConfigInput: Component<{
