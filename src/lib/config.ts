@@ -11,7 +11,7 @@ export const AREA_NAME = "local";
 
 export const Config = S.make((S) =>
   S.struct({
-    message: S.struct({
+    chat: S.struct({
       owner: S.literal("hide", "nohighlight", "show"),
       moderator: S.literal("hide", "show"),
       others: S.literal("hide", "show"),
@@ -42,7 +42,7 @@ export const eqConfig = S.interpreter(Eq.Schemable)(Config);
 export type Config = S.TypeOf<typeof Config>;
 
 export const CONFIG_DEFAULT = {
-  message: {
+  chat: {
     owner: "show",
     moderator: "show",
     others: "show",
@@ -68,7 +68,7 @@ export const CONFIG_DEFAULT = {
 } satisfies Config;
 
 export const CONFIG_SHOW_ALL = {
-  message: {
+  chat: {
     owner: "show",
     moderator: "show",
     others: "show",
@@ -94,7 +94,7 @@ export const CONFIG_SHOW_ALL = {
 } satisfies Config;
 
 export const CONFIG_HIDE_ALL = {
-  message: {
+  chat: {
     owner: "hide",
     moderator: "hide",
     others: "hide",
@@ -119,30 +119,119 @@ export const CONFIG_HIDE_ALL = {
   engagement: "hide",
 } satisfies Config;
 
-const valueToClassName = (value: "hide" | "nohighlight" | "show") => {
-  switch (value) {
-    case "hide":
-      return "none";
-    case "nohighlight":
-      return "nohighlight";
-    case "show":
-      return undefined;
-  }
+type helper<T, V> = {
+  [k in keyof T]: T[k] extends string ? Record<T[k], V> : helper<T[k], V>;
+};
+
+type ConfigClassNameMap = helper<Config, ClassName | undefined>;
+
+const ConfigClassNameMap = {
+  chat: {
+    owner: {
+      hide: "chat-owner-none",
+      nohighlight: "message-owner-nohighlight",
+      show: undefined,
+    },
+    moderator: {
+      hide: "chat-owner-none",
+      show: undefined,
+    },
+    others: {
+      hide: "chat-others-none",
+      show: undefined,
+    },
+  },
+  name: {
+    owner: {
+      hide: "name-owner-none",
+      nohighlight: "name-owner-nohighlight",
+      show: undefined,
+    },
+    moderator: {
+      hide: "name-moderator-none",
+      nohighlight: "name-moderator-nohighlight",
+      show: undefined,
+    },
+    others: {
+      hide: "name-others-none",
+      show: undefined,
+    },
+  },
+  icon: {
+    owner: {
+      hide: "icon-owner-none",
+      show: undefined,
+    },
+    moderator: {
+      hide: "icon-moderator-none",
+      show: undefined,
+    },
+    others: {
+      hide: "icon-others-none",
+      show: undefined,
+    },
+  },
+  badge: {
+    moderator: {
+      hide: "badge-moderator-none",
+      show: undefined,
+    },
+  },
+  superchat: {
+    hide: "superchat-none",
+    show: undefined,
+  },
+  sticker: {
+    hide: "sticker-none",
+    show: undefined,
+  },
+  superchatBar: {
+    hide: "superchatBar-none",
+    show: undefined,
+  },
+  memberChat: {
+    hide: "memberChat-none",
+    show: undefined,
+  },
+  engagement: {
+    hide: "engagement-none",
+    show: undefined,
+  },
+} as const satisfies ConfigClassNameMap;
+
+interface DeepRecord {
+  [k: string]: DeepRecord | string;
+}
+
+const traverse = (
+  obj: DeepRecord,
+  cb: (path: string[], value: string) => void,
+  path: string[] = [],
+) => {
+  Object.entries(obj).forEach(([k, v]) => {
+    if (typeof v === "string") {
+      cb([...path, k], v);
+    } else {
+      traverse(v, cb, [...path, k]);
+    }
+  });
 };
 
 export const classNames = (config: Config) => {
-  return Object.entries(config).flatMap(([target, v]) => {
-    if (typeof v === "string") {
-      const value = valueToClassName(v);
-      return value ? [`${target}-${value}`] : [];
-    } else {
-      const inners = Object.entries(v).flatMap(([ty, op]) => {
-        const value = valueToClassName(op);
-        return value ? [`${ty}-${value}`] : [];
-      });
-      return inners.map((inner) => `${target}-${inner}`);
+  const results: ClassName[] = [];
+
+  traverse(config, (path, v) => {
+    const mayClassName = path.reduce(
+      (inner, p) => inner[p as keyof typeof inner] as DeepRecord,
+      ConfigClassNameMap as unknown as DeepRecord,
+    )[v] as ClassName | undefined;
+
+    if (mayClassName != null) {
+      results.push(mayClassName);
     }
-  }) as ClassName[];
+  });
+
+  return results;
 };
 
 export const loadConfig = async (defaultConfig: Config) => {
