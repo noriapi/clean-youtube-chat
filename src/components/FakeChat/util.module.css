@@ -1,0 +1,12 @@
+.selectable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.selectable:hover {
+  outline: red 4px dashed;
+}
+
+.hidden {
+  opacity: 0.5;
+}

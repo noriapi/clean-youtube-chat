@@ -1,0 +1,76 @@
+.selectable {
+  composes: selectable from "./util.module.css";
+}
+
+.selectableNoHover {
+  composes: selectableNoHover from "./util.module.css";
+}
+
+.selectableHovering {
+  composes: selectableHovering from "./util.module.css";
+}
+
+.hidden {
+  composes: hidden from "./util.module.css";
+}
+
+.ytLiveChatTextMessageRenderer {
+  position: relative;
+  font-size: 13px;
+  padding: 4px 24px;
+  overflow: hidden;
+  contain: content;
+  --yt-endpoint-color: var(
+    --yt-live-chat-primary-text-color,
+    var(--yt-deprecated-luna-black)
+  );
+  --yt-endpoint-hover-color: var(
+    --yt-live-chat-primary-text-color,
+    var(--yt-endpoint-color)
+  );
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.ytLiveChatTextMessageRenderer[author-type="owner"] {
+  background-color: var(--yt-live-chat-message-highlight-background-color);
+}
+
+.authorPhoto {
+  display: block;
+  margin-right: var(--yt-live-chat-author-photo-margin-right, 16px);
+  overflow: hidden;
+  border-radius: 50%;
+  flex: none;
+}
+
+.content {
+  -ms-align-self: center;
+  align-self: center;
+  min-width: 0;
+}
+
+.ytLiveChatAuthorChip {
+  margin-right: var(--yt-live-chat-author-chip-margin-right, 8px);
+}
+
+.message {
+  color: var(--yt-live-chat-primary-text-color, var(--yt-spec-text-primary));
+  line-height: 16px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  font-style: var(
+    --yt-live-chat-text-message-renderer-message-message-style-font-style
+  );
+  opacity: var(
+    --yt-live-chat-text-message-renderer-message-message-style-opacity
+  );
+}
+
+.restArea {
+  flex: 1 1;
+  align-self: stretch;
+}
