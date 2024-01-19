@@ -145,7 +145,9 @@ const createChatItemModerator = (
   ({
     type: "text",
     props: {
-      "author-type": "moderator",
+      get "author-type"() {
+        return config.name.moderator === "show" ? "moderator" : "";
+      },
       "author-name": "Moderator",
       message: "Howdy!",
 
