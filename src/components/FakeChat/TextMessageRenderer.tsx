@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import { Component, createMemo, createSignal } from "solid-js";
 
 import { AuthorType } from "./AuthorBadgeRenderer";
 import AuthorChip from "./AuthorChip";
@@ -23,9 +23,18 @@ const TextMessageRenderer: Component<{
   onClickMessage?: () => void;
   hideMessage?: boolean;
 }> = (props) => {
+  const [hoveringMessage, setHoveringMessage] = createSignal(false);
+  const [hoveringRest, setHoveringRest] = createSignal(false);
+  const hoveringMessageArea = createMemo(
+    () => hoveringMessage() || hoveringRest(),
+  );
+
   return (
     <div
       class={styles.ytLiveChatTextMessageRenderer}
+      classList={{
+        [styles.selectableHovering]: hoveringMessageArea(),
+      }}
       author-type={props["author-type"]}
     >
       <ImageShadow
@@ -46,14 +55,26 @@ const TextMessageRenderer: Component<{
           id="message"
           class={styles.message}
           classList={{
-            [styles.selectable]: props.onClickMessage != null,
+            [styles.selectableNoHover]: props.onClickMessage != null,
             [styles.hidden]: props.hideMessage,
           }}
           onClick={() => props.onClickMessage?.()}
+          onMouseEnter={() => setHoveringMessage(true)}
+          onMouseLeave={() => setHoveringMessage(false)}
         >
           {props["message"]}
         </span>
       </div>
+
+      <div
+        class={styles.restArea}
+        classList={{
+          [styles.selectableNoHover]: props.onClickMessage != null,
+        }}
+        onClick={() => props.onClickMessage?.()}
+        onMouseEnter={() => setHoveringRest(true)}
+        onMouseLeave={() => setHoveringRest(false)}
+      />
     </div>
   );
 };
