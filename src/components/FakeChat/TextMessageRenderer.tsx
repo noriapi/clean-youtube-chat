@@ -22,6 +22,7 @@ const TextMessageRenderer: Component<{
   hideChatBadge?: boolean;
   onClickMessage?: () => void;
   hideMessage?: boolean;
+  noModeratorColor?: boolean;
 }> = (props) => {
   const [hoveringMessage, setHoveringMessage] = createSignal(false);
   const [hoveringRest, setHoveringRest] = createSignal(false);

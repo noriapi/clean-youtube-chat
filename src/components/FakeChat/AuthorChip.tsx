@@ -17,6 +17,7 @@ const AuthorChip: Component<
     hideChipBadge?: boolean;
     onClickChatBadge?: () => void;
     hideChatBadge?: boolean;
+    noModeratorColor?: boolean;
   } & ComponentProps<"div">
 > = (props) => {
   const [local, div] = splitProps(props, [
@@ -31,6 +32,7 @@ const AuthorChip: Component<
     "hideChipBadge",
     "onClickChatBadge",
     "hideChatBadge",
+    "noModeratorColor",
   ]);
 
   return (
@@ -52,6 +54,7 @@ const AuthorChip: Component<
           [styles.member]: local["author-type"] === "member",
           [styles.moderator]: local["author-type"] === "moderator",
           [styles.owner]: local["author-type"] === "owner",
+          [styles.noModeratorColor]: local.noModeratorColor,
         }}
       >
         <span

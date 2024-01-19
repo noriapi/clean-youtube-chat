@@ -28,7 +28,7 @@
   color: var(--yt-live-chat-sponsor-color);
 }
 
-.authorName.moderator {
+.authorName.moderator:not(.noModeratorColor) {
   color: var(--yt-live-chat-moderator-color);
 }
 

@@ -145,9 +145,7 @@ const createChatItemModerator = (
   ({
     type: "text",
     props: {
-      get "author-type"() {
-        return config.name.moderator === "show" ? "moderator" : "";
-      },
+      "author-type": "moderator",
       "author-name": "Moderator",
       message: "Howdy!",
 
@@ -157,10 +155,13 @@ const createChatItemModerator = (
       get hideName() {
         return config.name.moderator === "hide";
       },
-      hideChipBadge: false,
       get hideChatBadge() {
         return config.badge.moderator === "hide";
       },
+      get noModeratorColor() {
+        return config.name.moderator === "nohighlight";
+      },
+      hideChipBadge: false,
       hideMessage: false,
 
       onClickIcon: () => setConfig("icon", "moderator", toggleSH),

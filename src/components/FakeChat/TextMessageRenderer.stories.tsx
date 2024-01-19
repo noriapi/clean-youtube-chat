@@ -77,6 +77,7 @@ export const Moderator = {
     "author-type": "moderator",
     "author-name": "Moderator",
     message: "Howdy!",
+    noModeratorColor: false,
   },
 } satisfies Story;
 
