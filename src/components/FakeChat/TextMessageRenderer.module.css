@@ -2,6 +2,14 @@
   composes: selectable from "./util.module.css";
 }
 
+.selectableNoHover {
+  composes: selectableNoHover from "./util.module.css";
+}
+
+.selectableHovering {
+  composes: selectableHovering from "./util.module.css";
+}
+
 .hidden {
   composes: hidden from "./util.module.css";
 }
@@ -60,4 +68,9 @@
   opacity: var(
     --yt-live-chat-text-message-renderer-message-message-style-opacity
   );
+}
+
+.restArea {
+  flex: 1 1;
+  align-self: stretch;
 }
