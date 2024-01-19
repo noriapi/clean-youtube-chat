@@ -34,7 +34,8 @@ const TextMessageRenderer: Component<{
     <div
       class={styles.ytLiveChatTextMessageRenderer}
       classList={{
-        [styles.selectableHovering]: hoveringMessageArea(),
+        [styles.selectableHovering]:
+          props.onClickMessage != null && hoveringMessageArea(),
       }}
       author-type={props["author-type"]}
     >
