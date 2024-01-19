@@ -179,8 +179,10 @@ const createChatItemOwner = (
       "author-type": "owner",
       "author-name": "Channel Owner",
       message: "Hey, guys!",
-      "is-highlighted": true,
 
+      get "is-highlighted"() {
+        return config.name.owner === "nohighlight" ? undefined : true;
+      },
       get hideIcon() {
         return config.icon.owner === "hide";
       },
