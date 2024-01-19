@@ -181,7 +181,7 @@ const createChatItemOwner = (
       message: "Hey, guys!",
 
       get "is-highlighted"() {
-        return config.name.owner === "nohighlight" ? undefined : true;
+        return config.name.owner === "show" ? true : undefined;
       },
       get hideIcon() {
         return config.icon.owner === "hide";
