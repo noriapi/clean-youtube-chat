@@ -25,7 +25,7 @@ type Story = StoryObj<Props>;
 export const Default = {
   args: {
     initialValue: {
-      message: {
+      chat: {
         owner: "show",
         moderator: "show",
         others: "show",
