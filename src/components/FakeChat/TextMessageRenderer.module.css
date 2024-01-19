@@ -25,6 +25,10 @@
   align-items: flex-start;
 }
 
+.ytLiveChatTextMessageRenderer[author-type="owner"] {
+  background-color: var(--yt-live-chat-message-highlight-background-color);
+}
+
 .authorPhoto {
   display: block;
   margin-right: var(--yt-live-chat-author-photo-margin-right, 16px);
