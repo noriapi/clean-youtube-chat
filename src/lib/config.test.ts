@@ -18,7 +18,7 @@ import {
 } from "./config";
 
 const arbConfig: fc.Arbitrary<Config> = fc.record({
-  message: fc.record({
+  chat: fc.record({
     owner: fc.constantFrom("hide", "nohighlight", "show"),
     moderator: fc.constantFrom("hide", "show"),
     others: fc.constantFrom("hide", "show"),

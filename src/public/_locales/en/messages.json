@@ -12,7 +12,7 @@
     "message": "Config",
     "description": "Title of configuration form."
   },
-  "configFormMessage": {
+  "configFormChat": {
     "message": "Whole Message",
     "description": "Message section title of configuration form."
   },

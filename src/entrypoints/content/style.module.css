@@ -1,21 +1,19 @@
 /* hide whole message (owner) */
-.message-owner-none
+.chat-owner-none
   :global
   yt-live-chat-text-message-renderer[author-type="owner"] {
   display: none !important;
 }
 
 /* hide whole message (moderator) */
-.message-moderator-none
+.chat-moderator-none
   :global
   yt-live-chat-text-message-renderer[author-type="moderator"] {
   display: none !important;
 }
 
 /* hide whole message (any other) */
-.message-others-none
-  :global
-  yt-live-chat-text-message-renderer[author-type=""] {
+.chat-others-none :global yt-live-chat-text-message-renderer[author-type=""] {
   display: none !important;
 }
 

@@ -11,7 +11,7 @@ export const AREA_NAME = "local";
 
 export const Config = S.make((S) =>
   S.struct({
-    message: S.struct({
+    chat: S.struct({
       owner: S.literal("hide", "nohighlight", "show"),
       moderator: S.literal("hide", "show"),
       others: S.literal("hide", "show"),
@@ -42,7 +42,7 @@ export const eqConfig = S.interpreter(Eq.Schemable)(Config);
 export type Config = S.TypeOf<typeof Config>;
 
 export const CONFIG_DEFAULT = {
-  message: {
+  chat: {
     owner: "show",
     moderator: "show",
     others: "show",
@@ -68,7 +68,7 @@ export const CONFIG_DEFAULT = {
 } satisfies Config;
 
 export const CONFIG_SHOW_ALL = {
-  message: {
+  chat: {
     owner: "show",
     moderator: "show",
     others: "show",
@@ -94,7 +94,7 @@ export const CONFIG_SHOW_ALL = {
 } satisfies Config;
 
 export const CONFIG_HIDE_ALL = {
-  message: {
+  chat: {
     owner: "hide",
     moderator: "hide",
     others: "hide",
@@ -126,18 +126,18 @@ type helper<T, V> = {
 type ConfigClassNameMap = helper<Config, ClassName | undefined>;
 
 const ConfigClassNameMap = {
-  message: {
+  chat: {
     owner: {
-      hide: "message-owner-none",
+      hide: "chat-owner-none",
       nohighlight: "message-owner-nohighlight",
       show: undefined,
     },
     moderator: {
-      hide: "message-owner-none",
+      hide: "chat-owner-none",
       show: undefined,
     },
     others: {
-      hide: "message-others-none",
+      hide: "chat-others-none",
       show: undefined,
     },
   },
