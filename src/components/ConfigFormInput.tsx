@@ -30,15 +30,15 @@ const ConfigFormInput: Component<
       <legend>{browser.i18n.getMessage("configFormTitle")}</legend>
 
       <fieldset>
-        <legend>{browser.i18n.getMessage("configFormMessage")}</legend>
+        <legend>{browser.i18n.getMessage("configFormChat")}</legend>
 
         <RadioSelect
           name="message-owner"
           label={browser.i18n.getMessage("configFormOwner")}
           options={["hide", "show", "nohighlight"]}
           optionLabel={getOptionLabel}
-          value={local.value.message.owner}
-          onInput={(value) => local.setValue("message", "owner", value)}
+          value={local.value.chat.owner}
+          onInput={(value) => local.setValue("chat", "owner", value)}
         />
 
         <RadioSelect
@@ -46,8 +46,8 @@ const ConfigFormInput: Component<
           label={browser.i18n.getMessage("configFormModerator")}
           options={["hide", "show"]}
           optionLabel={getOptionLabel}
-          value={local.value.message.moderator}
-          onInput={(value) => local.setValue("message", "moderator", value)}
+          value={local.value.chat.moderator}
+          onInput={(value) => local.setValue("chat", "moderator", value)}
         />
 
         <RadioSelect
@@ -55,8 +55,8 @@ const ConfigFormInput: Component<
           label={browser.i18n.getMessage("configFormOthers")}
           options={["hide", "show"]}
           optionLabel={getOptionLabel}
-          value={local.value.message.others}
-          onInput={(value) => local.setValue("message", "others", value)}
+          value={local.value.chat.others}
+          onInput={(value) => local.setValue("chat", "others", value)}
         />
       </fieldset>
 
