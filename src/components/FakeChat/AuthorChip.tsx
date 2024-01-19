@@ -38,7 +38,9 @@ const AuthorChip: Component<
       {...combineProps(
         {
           class: styles.ytLiveChatAuthorChip,
-          "is-highlighted": local["is-highlighted"],
+          "is-highlighted": local.hideName
+            ? undefined
+            : local["is-highlighted"],
           "disable-highlighting": local["disable-highlighting"],
         },
         div,
