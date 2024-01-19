@@ -1,14 +1,6 @@
-.selectableNoHover {
+.selectable {
   cursor: pointer;
   user-select: none;
-}
-
-.selectableHovering {
-  outline: red 4px dashed;
-}
-
-.selectable {
-  composes: selectableNoHover;
 }
 
 .selectable:hover {
