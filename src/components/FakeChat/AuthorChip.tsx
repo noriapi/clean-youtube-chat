@@ -1,5 +1,11 @@
 import { combineProps } from "@solid-primitives/props";
-import { Component, ComponentProps, Show, splitProps } from "solid-js";
+import {
+  Component,
+  ComponentProps,
+  createSignal,
+  Show,
+  splitProps,
+} from "solid-js";
 
 import AuthorBadgeRenderer, { AuthorType } from "./AuthorBadgeRenderer";
 import styles from "./AuthorChip.module.css";
@@ -33,6 +39,8 @@ const AuthorChip: Component<
     "hideChatBadge",
   ]);
 
+  const [hoveringName, setHoveringName] = createSignal(false);
+
   return (
     <div
       {...combineProps(
@@ -40,6 +48,10 @@ const AuthorChip: Component<
           class: styles.ytLiveChatAuthorChip,
           "is-highlighted": local["is-highlighted"],
           "disable-highlighting": local["disable-highlighting"],
+          classList: {
+            [styles.selectableHovering]:
+              hoveringName() && props.onClickName != null,
+          },
         },
         div,
       )}
@@ -56,10 +68,12 @@ const AuthorChip: Component<
       >
         <span
           classList={{
-            [styles.selectable]: local.onClickName != null,
+            [styles.selectableNoHover]: local.onClickName != null,
             [styles.hidden]: local.hideName,
           }}
           onClick={() => local.onClickName?.()}
+          onMouseEnter={() => setHoveringName(true)}
+          onMouseLeave={() => setHoveringName(false)}
         >
           {local["author-name"]}
         </span>
