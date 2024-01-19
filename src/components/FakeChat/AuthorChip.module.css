@@ -38,8 +38,7 @@
   background-color: var(--yt-live-chat-author-chip-verified-background-color);
 }
 
-.ytLiveChatAuthorChip[is-highlighted] .authorName.owner,
-.authorName.owner {
+.ytLiveChatAuthorChip[is-highlighted] .authorName.owner {
   background-color: var(--yt-live-chat-author-chip-owner-background-color);
   color: var(--yt-live-chat-author-chip-owner-text-color);
 }
