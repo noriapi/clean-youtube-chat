@@ -17,7 +17,7 @@ import {
   saveConfig,
 } from "./config";
 
-const arbConfig = fc.record({
+const arbConfig: fc.Arbitrary<Config> = fc.record({
   message: fc.record({
     owner: fc.constantFrom("hide", "nohighlight", "show"),
     moderator: fc.constantFrom("hide", "show"),
@@ -25,7 +25,7 @@ const arbConfig = fc.record({
   }),
   name: fc.record({
     owner: fc.constantFrom("hide", "nohighlight", "show"),
-    moderator: fc.constantFrom("hide", "nohighlight", "show"),
+    moderator: fc.constantFrom("hide", "show"),
     others: fc.constantFrom("hide", "show"),
   }),
   icon: fc.record({
@@ -41,7 +41,7 @@ const arbConfig = fc.record({
   superchatBar: fc.constantFrom("hide", "show"),
   memberChat: fc.constantFrom("hide", "show"),
   engagement: fc.constantFrom("hide", "show"),
-}) satisfies fc.Arbitrary<Config>;
+});
 
 describe("classNames", () => {
   it.prop([arbConfig])("should always return valid classNames", (config) => {
