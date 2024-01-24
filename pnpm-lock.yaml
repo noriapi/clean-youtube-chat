@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^1.2.1
     version: 1.2.1(@types/node@20.11.6)
   wxt:
-    specifier: ^0.14.5
-    version: 0.14.5(@types/node@20.11.6)
+    specifier: ^0.14.6
+    version: 0.14.6(@types/node@20.11.6)
 
 packages:
 
@@ -3182,6 +3182,10 @@ packages:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
     dev: true
 
+  /manage-path@2.0.0:
+    resolution: {integrity: sha512-NJhyB+PJYTpxhxZJ3lecIGgh4kwIY2RAh44XvAz9UlqthlQwtPBf62uBVR8XaD8CRuSjQ6TnZH2lNJkbLPZM2A==}
+    dev: true
+
   /marky@1.2.5:
     resolution: {integrity: sha512-q9JtQJKjpsVxCRVgQ+WapguSbKC3SQ5HEzFGPAJMStgh3QjCawp00UKv3MTTAArTmGmmPUvllHZoNbZ3gs0I+Q==}
     dev: true
@@ -4973,8 +4977,8 @@ packages:
         optional: true
     dev: true
 
-  /wxt@0.14.5(@types/node@20.11.6):
-    resolution: {integrity: sha512-XlTLWo2DvZKfubhEMRWpSXAZDMKUJp0f94uQFJGrlQbkQr6rInZyhyRE4c9B2zk/x/26efli9sAV9sXke0FWBA==}
+  /wxt@0.14.6(@types/node@20.11.6):
+    resolution: {integrity: sha512-40yZT0sl5tW9E2JlFNid/MeaNhZQ4JluSS9DcSOXHUQSWMvKLVdYIKCrcL/gOVvoxRDyjFZUUr4Sz++1hm213g==}
     engines: {node: '>=18', pnpm: '>=8'}
     hasBin: true
     dependencies:
@@ -5000,7 +5004,9 @@ packages:
       jiti: 1.21.0
       json5: 2.2.3
       linkedom: 0.16.6
+      manage-path: 2.0.0
       minimatch: 9.0.3
+      natural-compare: 1.4.0
       normalize-path: 3.0.0
       ora: 7.0.1
       picocolors: 1.0.0
