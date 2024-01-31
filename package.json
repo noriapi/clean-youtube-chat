@@ -39,7 +39,7 @@
   "devDependencies": {
     "@commander-js/extra-typings": "^11.1.0",
     "@eslint/eslintrc": "^3.0.0",
-    "@fast-check/vitest": "^0.0.9",
+    "@fast-check/vitest": "^0.1.0",
     "@playwright/test": "^1.41.1",
     "@types/node": "^20.11.13",
     "@types/webextension-polyfill": "^0.10.7",
