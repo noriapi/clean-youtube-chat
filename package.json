@@ -55,7 +55,7 @@
     "playwright": "^1.41.2",
     "prettier": "^3.2.5",
     "publish-browser-extension": "^1.4.1",
-    "tsx": "^4.7.0",
+    "tsx": "^4.7.1",
     "typescript": "^5.3.3",
     "typescript-plugin-css-modules": "^5.0.2",
     "vite": "^5.1.1",
