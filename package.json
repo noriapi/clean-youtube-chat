@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@commander-js/extra-typings": "^12.0.0",
-    "@eslint/eslintrc": "^3.0.0",
+    "@eslint/eslintrc": "^3.0.1",
     "@fast-check/vitest": "^0.1.0",
     "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.17",
