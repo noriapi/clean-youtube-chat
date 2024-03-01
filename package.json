@@ -37,7 +37,7 @@
     "solid-js": "^1.8.15"
   },
   "devDependencies": {
-    "@commander-js/extra-typings": "^12.0.0",
+    "@commander-js/extra-typings": "^12.0.1",
     "@eslint/eslintrc": "^3.0.2",
     "@fast-check/vitest": "^0.1.0",
     "@playwright/test": "^1.42.0",
