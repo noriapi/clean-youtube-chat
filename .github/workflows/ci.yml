@@ -50,7 +50,7 @@ jobs:
         run: pnpm test
 
       - name: test build (chrome)
-        run: pnpm build
+        run: pnpm build:chrome
 
       - name: test build (firefox)
         run: pnpm build:firefox
