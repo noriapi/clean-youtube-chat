@@ -60,7 +60,7 @@ jobs:
 
       - name: build zip (chrome)
         if: ${{ matrix.target == 'chrome' }}
-        run: pnpm zip
+        run: pnpm zip:chrome
 
       - name: build zip (firefox)
         if: ${{ matrix.target == 'firefox' }}
@@ -111,7 +111,7 @@ jobs:
 
       - name: build zip (chrome)
         if: ${{ matrix.target == 'chrome' }}
-        run: pnpm zip
+        run: pnpm zip:chrome
 
       - name: build zip (firefox)
         if: ${{ matrix.target == 'firefox' }}
@@ -123,7 +123,7 @@ jobs:
           CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
           CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
           CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
-        run: pnpm submit
+        run: pnpm submit:chrome
 
       - name: submit (firefox)
         if: ${{ matrix.target == 'firefox' }}
