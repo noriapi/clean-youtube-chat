@@ -51,7 +51,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "eslint-plugin-solid": "^0.13.1",
-    "globals": "^14.0.0",
+    "globals": "^15.0.0",
     "playwright": "^1.42.1",
     "prettier": "^3.2.5",
     "publish-browser-extension": "^1.4.1",
