@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Component, ComponentProps, splitProps } from "solid-js";
 import { SetStoreFunction, Store } from "solid-js/store";
 import { browser } from "wxt/browser";
@@ -35,7 +37,7 @@ const ConfigFormInput: Component<
         <RadioSelect
           name="message-owner"
           label={browser.i18n.getMessage("configFormOwner")}
-          options={["hide", "show", "nohighlight"]}
+          options={["hide", "show"]}
           optionLabel={getOptionLabel}
           value={local.value.chat.owner}
           onInput={(value) => local.setValue("chat", "owner", value)}
@@ -139,8 +141,8 @@ const ConfigFormInput: Component<
         label={browser.i18n.getMessage("configFormSuperchat")}
         options={["hide", "show"]}
         optionLabel={getOptionLabel}
-        value={local.value.superchat}
-        onInput={(value) => local.setValue("superchat", value)}
+        value={local.value.superchat.any}
+        onInput={(value) => local.setValue("superchat", "any", value)}
       />
 
       <RadioSelect
@@ -148,8 +150,8 @@ const ConfigFormInput: Component<
         label={browser.i18n.getMessage("configFormSticker")}
         options={["hide", "show"]}
         optionLabel={getOptionLabel}
-        value={local.value.sticker}
-        onInput={(value) => local.setValue("sticker", value)}
+        value={local.value.sticker.any}
+        onInput={(value) => local.setValue("sticker", "any", value)}
       />
 
       <RadioSelect
@@ -157,8 +159,8 @@ const ConfigFormInput: Component<
         label={browser.i18n.getMessage("configFormSuperchatBar")}
         options={["hide", "show"]}
         optionLabel={getOptionLabel}
-        value={local.value.superchatBar}
-        onInput={(value) => local.setValue("superchatBar", value)}
+        value={local.value.superchatBar.any}
+        onInput={(value) => local.setValue("superchatBar", "any", value)}
       />
 
       <RadioSelect
@@ -166,8 +168,8 @@ const ConfigFormInput: Component<
         label={browser.i18n.getMessage("configFormMemberChat")}
         options={["hide", "show"]}
         optionLabel={getOptionLabel}
-        value={local.value.memberChat}
-        onInput={(value) => local.setValue("memberChat", value)}
+        value={local.value.memberChat.any}
+        onInput={(value) => local.setValue("memberChat", "any", value)}
       />
 
       <RadioSelect
@@ -175,8 +177,8 @@ const ConfigFormInput: Component<
         label={browser.i18n.getMessage("configFormEngagement")}
         options={["hide", "show"]}
         optionLabel={getOptionLabel}
-        value={local.value.engagement}
-        onInput={(value) => local.setValue("engagement", value)}
+        value={local.value.engagement.any}
+        onInput={(value) => local.setValue("engagement", "any", value)}
       />
     </fieldset>
   );
