@@ -1,3 +1,4 @@
+import * as A from "@effect/schema/Arbitrary";
 import { fc, it } from "@fast-check/vitest";
 import { beforeEach, describe, expect, vi } from "vitest";
 import { fakeBrowser } from "wxt/testing";
@@ -17,31 +18,7 @@ import {
   saveConfig,
 } from "./config";
 
-const arbConfig: fc.Arbitrary<Config> = fc.record({
-  chat: fc.record({
-    owner: fc.constantFrom("hide", "nohighlight", "show"),
-    moderator: fc.constantFrom("hide", "show"),
-    others: fc.constantFrom("hide", "show"),
-  }),
-  name: fc.record({
-    owner: fc.constantFrom("hide", "nohighlight", "show"),
-    moderator: fc.constantFrom("hide", "show"),
-    others: fc.constantFrom("hide", "show"),
-  }),
-  icon: fc.record({
-    owner: fc.constantFrom("hide", "show"),
-    moderator: fc.constantFrom("hide", "show"),
-    others: fc.constantFrom("hide", "show"),
-  }),
-  badge: fc.record({
-    moderator: fc.constantFrom("hide", "show"),
-  }),
-  superchat: fc.constantFrom("hide", "show"),
-  sticker: fc.constantFrom("hide", "show"),
-  superchatBar: fc.constantFrom("hide", "show"),
-  memberChat: fc.constantFrom("hide", "show"),
-  engagement: fc.constantFrom("hide", "show"),
-});
+const arbConfig: fc.Arbitrary<Config> = A.make(Config)(fc);
 
 describe("classNames", () => {
   it.prop([arbConfig])("should always return valid classNames", (config) => {
@@ -87,7 +64,7 @@ describe("onChangeHandler", () => {
     fc.uniqueArray(arbConfig, {
       minLength: 2,
       maxLength: 2,
-      comparator: eqConfig.equals,
+      comparator: eqConfig,
     }),
   ])(
     "should always handle changes that replacing old config",
