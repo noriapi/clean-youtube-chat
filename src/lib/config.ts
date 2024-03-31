@@ -1,61 +1,34 @@
 import * as Eq from "@effect/schema/Equivalence";
 import * as S from "@effect/schema/Schema";
 import { createStore, SetStoreFunction, unwrap } from "solid-js/store";
-import { merge } from "ts-deepmerge";
-import { Simplify, StringKeyOf } from "type-fest";
 import { Storage } from "webextension-polyfill";
 import { browser } from "wxt/browser";
 
-import {
-  ClassInfo,
-  ClassInfoFromProperties,
-  classInfoFromProperties,
-  classInfos,
-} from "./style";
+import { Styles, styles } from "./style.css";
 
 export const AREA_NAME = "local";
 
 type NonEmptyArray<A> = [A, ...A[]];
 
-type ConfigSchemaRecipeImpl<I extends ClassInfo> = I extends any
-  ? {
-      [T in I["target"]]: {
-        [A in I["author"]]: [I["operation"]];
-      };
-    }
-  : never;
-const configSchemaRecipeImpl = <T extends ClassInfo>(i: T) =>
-  ({
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    [i.target]: { [i.author]: [i.operation] },
-  }) as ConfigSchemaRecipeImpl<T>;
-const configSchemaRecipe = () => {
-  const recipes = classInfos().map(configSchemaRecipeImpl);
-  return merge(...recipes);
-};
+type DeepStringRecord = string | { [key: string]: DeepStringRecord };
 
-type IConfigSchemaRecipe =
-  | NonEmptyArray<string>
-  | { [key: string]: IConfigSchemaRecipe };
+type MakeConfigSchema<T extends DeepStringRecord> =
+  T extends Record<infer O extends string, string>
+    ? S.literal<NonEmptyArray<O | "show">>
+    : T extends { [key: string]: DeepStringRecord }
+      ? S.mutable<S.struct<{ [P in keyof T]: MakeConfigSchema<T[P]> }>>
+      : never;
 
-type MakeConfigSchema<T extends IConfigSchemaRecipe> = [T] extends [
-  NonEmptyArray<string>,
-]
-  ? S.literal<NonEmptyArray<T[number] | "show">>
-  : T extends { [key: string]: IConfigSchemaRecipe }
-    ? S.mutable<S.struct<{ [P in keyof T]: MakeConfigSchema<T[P]> }>>
-    : never;
-
-const makeConfigSchema = <T extends IConfigSchemaRecipe>(
-  recipe: T,
+const makeConfigSchema = <T extends DeepStringRecord>(
+  record: T,
 ): MakeConfigSchema<T> => {
-  if (Array.isArray(recipe)) {
-    return S.literal("show", ...recipe) as MakeConfigSchema<T>;
+  if (Object.values(record).every((v) => typeof v === "string")) {
+    return S.literal("show", ...Object.keys(record)) as MakeConfigSchema<T>;
   } else {
     return S.mutable(
       S.struct(
         Object.fromEntries(
-          Object.entries(recipe).map(([p, v]) => [p, makeConfigSchema(v)]),
+          Object.entries(record).map(([p, v]) => [p, makeConfigSchema(v)]),
         ),
       ),
     ) as MakeConfigSchema<T>;
@@ -63,31 +36,12 @@ const makeConfigSchema = <T extends IConfigSchemaRecipe>(
 };
 
 export const Config = () => {
-  const recipe = configSchemaRecipe();
-  return makeConfigSchema(recipe);
+  return makeConfigSchema<Styles>(styles);
 };
 
 export const eqConfig = () => Eq.make(Config());
 
 export type Config = S.Schema.Type<ReturnType<typeof Config>>;
-
-type IConfig = Record<string, Record<string, string>>;
-
-type ConfigClassInfoImpl<I extends IConfig> = {
-  [T in StringKeyOf<I>]: {
-    [A in StringKeyOf<I[T]>]: ClassInfoFromProperties<T, A, I[T][A]>;
-  }[StringKeyOf<I[T]>];
-}[StringKeyOf<I>];
-
-export type ConfigClassInfo = Simplify<ConfigClassInfoImpl<Config>>;
-
-export const configClassInfos = (config: Config) => {
-  return Object.entries(config).flatMap(([target, inner]) =>
-    Object.entries(inner).map(([author, operation]) =>
-      classInfoFromProperties(target, author, operation),
-    ),
-  ) as ConfigClassInfo[];
-};
 
 export const CONFIG_DEFAULT = {
   chat: {
@@ -113,9 +67,6 @@ export const CONFIG_DEFAULT = {
   superchatBar: { any: "show" },
   memberChat: { any: "show" },
   engagement: { any: "show" },
-  message: {
-    owner: "show",
-  },
 } satisfies Config;
 
 export const CONFIG_SHOW_ALL = {
@@ -142,9 +93,6 @@ export const CONFIG_SHOW_ALL = {
   superchatBar: { any: "show" },
   memberChat: { any: "show" },
   engagement: { any: "show" },
-  message: {
-    owner: "show",
-  },
 } satisfies Config;
 
 export const CONFIG_HIDE_ALL = {
@@ -171,9 +119,6 @@ export const CONFIG_HIDE_ALL = {
   superchatBar: { any: "hide" },
   memberChat: { any: "hide" },
   engagement: { any: "hide" },
-  message: {
-    owner: "show",
-  },
 } satisfies Config;
 
 export const loadConfig = async (defaultConfig: Config) => {

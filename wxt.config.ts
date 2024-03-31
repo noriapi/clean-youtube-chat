@@ -1,3 +1,4 @@
+import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import Solid from "vite-plugin-solid";
 import { defineConfig } from "wxt";
 
@@ -28,7 +29,7 @@ export default defineConfig({
     build: {
       target: "esnext",
     },
-    plugins: [Solid()],
+    plugins: [Solid(), vanillaExtractPlugin()],
   }),
   manifest: (env) => (env.manifestVersion === 2 ? manifestV2 : manifestV3),
   srcDir: "src",

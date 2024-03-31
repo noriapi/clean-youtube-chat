@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Component, ComponentProps, splitProps } from "solid-js";
 import { SetStoreFunction, Store } from "solid-js/store";
 import { browser } from "wxt/browser";

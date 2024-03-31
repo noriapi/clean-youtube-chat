@@ -6,36 +6,48 @@ import { defineContentScript } from "wxt/sandbox";
 import {
   Config,
   CONFIG_DEFAULT,
-  ConfigClassInfo,
-  configClassInfos,
   loadConfig,
   onChangeHandler,
 } from "~/lib/config";
-import { classInfosOf, classInfoTag, className, isClassTag } from "~/lib/style";
+import { getClassName, getOptionClassNames, Styles } from "~/lib/style.css";
 
-const setStyle = (info: ConfigClassInfo) => {
-  const body = document.getElementsByTagName("body")[0];
+const getBody = () => document.getElementsByTagName("body")[0];
 
-  // remove all related class names
-  const sameTargetAuthorInfos = classInfosOf(info.target, info.author);
-  sameTargetAuthorInfos.forEach((i) => {
-    const tag = classInfoTag(i);
-    if (isClassTag(tag)) {
-      body.classList.remove(className(tag));
+const removeStyles =
+  <E extends keyof Styles>(element: E) =>
+  <A extends keyof Styles[E]>(author: A) => {
+    const body = getBody();
+
+    const optionClassNames = getOptionClassNames(element)(author);
+
+    optionClassNames.forEach((className) => {
+      body.classList.remove(className);
+    });
+  };
+
+const setStyle =
+  <E extends keyof Styles>(element: E) =>
+  <A extends keyof Styles[E]>(author: A) =>
+  <O extends keyof Styles[E][A]>(option?: O) => {
+    removeStyles(element)(author);
+
+    if (option !== undefined) {
+      // add an actual class name
+      const className = getClassName(element)(author)(option);
+      const body = getBody();
+
+      body.classList.add(className);
     }
-  });
-
-  // add an actual class name
-  const tag = classInfoTag(info);
-  if (isClassTag(tag)) {
-    body.classList.add(className(tag));
-  }
-};
+  };
 
 const setStylesByConfig = (config: Config) => {
-  const infos = configClassInfos(config);
-
-  infos.forEach(setStyle);
+  Object.entries(config).forEach(([element, authorObj]) => {
+    Object.entries(authorObj).forEach(([author, option]) => {
+      setStyle(element as keyof Styles)(author as keyof Styles[keyof Styles])(
+        option,
+      );
+    });
+  });
 };
 
 const initStyle = () => {
