@@ -1,6 +1,5 @@
-import * as D from "io-ts/Decoder";
-import * as Eq from "io-ts/Eq";
-import * as S from "io-ts/Schema";
+import * as Eq from "@effect/schema/Equivalence";
+import * as S from "@effect/schema/Schema";
 import { createStore, SetStoreFunction, unwrap } from "solid-js/store";
 import { Storage } from "webextension-polyfill";
 import { browser } from "wxt/browser";
@@ -9,26 +8,34 @@ import type { ClassName } from "~/entrypoints/content";
 
 export const AREA_NAME = "local";
 
-export const Config = S.make((S) =>
+export const Config = S.mutable(
   S.struct({
-    chat: S.struct({
-      owner: S.literal("hide", "nohighlight", "show"),
-      moderator: S.literal("hide", "show"),
-      others: S.literal("hide", "show"),
-    }),
-    name: S.struct({
-      owner: S.literal("hide", "nohighlight", "show"),
-      moderator: S.literal("hide", "nohighlight", "show"),
-      others: S.literal("hide", "show"),
-    }),
-    icon: S.struct({
-      owner: S.literal("hide", "show"),
-      moderator: S.literal("hide", "show"),
-      others: S.literal("hide", "show"),
-    }),
-    badge: S.struct({
-      moderator: S.literal("hide", "show"),
-    }),
+    chat: S.mutable(
+      S.struct({
+        owner: S.literal("hide", "nohighlight", "show"),
+        moderator: S.literal("hide", "show"),
+        others: S.literal("hide", "show"),
+      }),
+    ),
+    name: S.mutable(
+      S.struct({
+        owner: S.literal("hide", "nohighlight", "show"),
+        moderator: S.literal("hide", "nohighlight", "show"),
+        others: S.literal("hide", "show"),
+      }),
+    ),
+    icon: S.mutable(
+      S.struct({
+        owner: S.literal("hide", "show"),
+        moderator: S.literal("hide", "show"),
+        others: S.literal("hide", "show"),
+      }),
+    ),
+    badge: S.mutable(
+      S.struct({
+        moderator: S.literal("hide", "show"),
+      }),
+    ),
     superchat: S.literal("hide", "show"),
     sticker: S.literal("hide", "show"),
     superchatBar: S.literal("hide", "show"),
@@ -36,10 +43,10 @@ export const Config = S.make((S) =>
     engagement: S.literal("hide", "show"),
   }),
 );
-export const decoderConfig = S.interpreter(D.Schemable)(Config);
-export const eqConfig = S.interpreter(Eq.Schemable)(Config);
 
-export type Config = S.TypeOf<typeof Config>;
+export const eqConfig = Eq.make(Config);
+
+export type Config = S.Schema.Type<typeof Config>;
 
 export const CONFIG_DEFAULT = {
   chat: {
@@ -241,8 +248,8 @@ export const loadConfig = async (defaultConfig: Config) => {
     return defaultConfig;
   }
 
-  const result = decoderConfig.decode(storage.config);
-  return result._tag === "Right" ? result.right : defaultConfig;
+  const result = S.decodeUnknownOption(Config)(storage.config);
+  return result._tag === "Some" ? result.value : defaultConfig;
 };
 
 export const saveConfig = async (config: Config) => {
@@ -253,15 +260,19 @@ export const onChangeHandler =
   (callback: (newValue: Config) => void) =>
   (changes: Record<string, Storage.StorageChange>, areaName: string) => {
     if (areaName === AREA_NAME && "config" in changes) {
-      const newConfigResult = decoderConfig.decode(changes.config.newValue);
-      if (newConfigResult._tag === "Left") return;
-      const newConfig = newConfigResult.right;
+      const newConfigResult = S.decodeUnknownOption(Config)(
+        changes.config.newValue,
+      );
+      if (newConfigResult._tag === "None") return;
+      const newConfig = newConfigResult.value;
 
-      const oldConfigResult = decoderConfig.decode(changes.config.oldValue);
+      const oldConfigResult = S.decodeUnknownOption(Config)(
+        changes.config.oldValue,
+      );
       const oldConfig =
-        oldConfigResult._tag === "Right" ? oldConfigResult.right : undefined;
+        oldConfigResult._tag === "Some" ? oldConfigResult.value : undefined;
 
-      if (oldConfig != null && eqConfig.equals(oldConfig, newConfig)) return;
+      if (oldConfig != null && eqConfig(oldConfig, newConfig)) return;
 
       callback(newConfig);
     }

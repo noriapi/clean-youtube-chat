@@ -5,9 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  io-ts:
-    specifier: ^2.2.21
-    version: 2.2.21(fp-ts@2.16.2)
+  '@effect/schema':
+    specifier: ^0.64.16
+    version: 0.64.16(effect@2.4.15)(fast-check@3.15.0)
   solid-js:
     specifier: ^1.8.16
     version: 1.8.16
@@ -357,6 +357,16 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@effect/schema@0.64.16(effect@2.4.15)(fast-check@3.15.0):
+    resolution: {integrity: sha512-vAidIu1H/lrjqvomJfzTk4+EtlffgJPD8hH8KLIyN4L4TZg3BLPXiqgUhBvhClUd6lfv24u3gnKhE+7W1yn6Sg==}
+    peerDependencies:
+      effect: ^2.4.15
+      fast-check: ^3.13.2
+    dependencies:
+      effect: 2.4.15
+      fast-check: 3.15.0
+    dev: false
 
   /@esbuild/aix-ppc64@0.19.11:
     resolution: {integrity: sha512-FnzU0LyE3ySQk7UntJO4+qIiQgI7KoODnZg5xzXIrFJlKd2P2gwHsHY4927xj9y5PJmJSzULiUCWmv7iWnNa7g==}
@@ -2211,6 +2221,10 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
+  /effect@2.4.15:
+    resolution: {integrity: sha512-fwOeADUSbmlvbNpAlUlNhuCPHN08VKt53YbtSzNe9aZK3CclVJdq2gPgo1TCaGQsJpPf42xw7QrrTBQiH94few==}
+    dev: false
+
   /electron-to-chromium@1.4.617:
     resolution: {integrity: sha512-sYNE3QxcDS4ANW1k4S/wWYMXjCVcFSOX3Bg8jpuMFaXt/x8JCmp0R1Xe1ZXDX4WXnSRBf+GJ/3eGWicUuQq5cg==}
     dev: true
@@ -2563,7 +2577,6 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       pure-rand: 6.0.4
-    dev: true
 
   /fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
@@ -2665,10 +2678,6 @@ packages:
     resolution: {integrity: sha512-8e1++BCiTzUno9v5IZ2J6bv4RU+3UKDmqWUQD0MIMVCd9AdhWkO1gw57oo1mNEX1dMq2EGI+FbWz4B92pscSQg==}
     engines: {node: '>= 18'}
     dev: true
-
-  /fp-ts@2.16.2:
-    resolution: {integrity: sha512-CkqAjnIKFqvo3sCyoBTqgJvF+bHrSik584S9nhTjtBESLx26cbtVMR/T9a6ApChOcSDAaM3JydDmWDUn4EEXng==}
-    dev: false
 
   /fs-extra@11.2.0:
     resolution: {integrity: sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw==}
@@ -3064,14 +3073,6 @@ packages:
   /inline-style-parser@0.1.1:
     resolution: {integrity: sha512-7NXolsK4CAS5+xvdj5OMMbI962hU/wvwoxk+LWR9Ek9bVtyuuYScDN6eS0rUm6TxApFpw7CX1o4uJzcd4AyD3Q==}
     dev: true
-
-  /io-ts@2.2.21(fp-ts@2.16.2):
-    resolution: {integrity: sha512-zz2Z69v9ZIC3mMLYWIeoUcwWD6f+O7yP92FMVVaXEOSZH1jnVBmET/urd/uoarD1WGBY4rCj8TAyMPzsGNzMFQ==}
-    peerDependencies:
-      fp-ts: ^2.5.0
-    dependencies:
-      fp-ts: 2.16.2
-    dev: false
 
   /is-absolute@0.1.7:
     resolution: {integrity: sha512-Xi9/ZSn4NFapG8RP98iNPMOeaV3mXPisxKxzKtHVqr3g56j/fBn+yZmnxSVAA8lmZbl2J9b/a4kJvfU3hqQYgA==}
@@ -4248,7 +4249,6 @@ packages:
 
   /pure-rand@6.0.4:
     resolution: {integrity: sha512-LA0Y9kxMYv47GIPJy6MI84fqTd2HmYZI83W/kM/SkKfDlajnZYfmXFTxkbY+xSBPkLJxltMa9hIkmdc29eguMA==}
-    dev: true
 
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
