@@ -1,38 +1,41 @@
-import "./style.module.css";
+import "~/lib/style.module.css";
 
 import { browser } from "wxt/browser";
 import { defineContentScript } from "wxt/sandbox";
 
 import {
-  classNames,
   Config,
   CONFIG_DEFAULT,
+  ConfigClassInfo,
+  configClassInfos,
   loadConfig,
   onChangeHandler,
 } from "~/lib/config";
+import { classInfosOf, classInfoTag, className, isClassTag } from "~/lib/style";
 
-import styles from "./style.module.css";
-
-export type ClassName = keyof typeof styles;
-export const getClassNames = () => Object.keys(styles) as ClassName[];
-
-const setStyle = (className: ClassName, enabled: boolean) => {
+const setStyle = (info: ConfigClassInfo) => {
   const body = document.getElementsByTagName("body")[0];
 
-  if (enabled) {
-    body.classList.add(styles[className]);
-  } else {
-    body.classList.remove(styles[className]);
+  // remove all related class names
+  const sameTargetAuthorInfos = classInfosOf(info.target, info.author);
+  sameTargetAuthorInfos.forEach((i) => {
+    const tag = classInfoTag(i);
+    if (isClassTag(tag)) {
+      body.classList.remove(className(tag));
+    }
+  });
+
+  // add an actual class name
+  const tag = classInfoTag(info);
+  if (isClassTag(tag)) {
+    body.classList.add(className(tag));
   }
 };
 
 const setStylesByConfig = (config: Config) => {
-  const classList = classNames(config);
+  const infos = configClassInfos(config);
 
-  getClassNames().forEach((className) => {
-    const enabled = classList.includes(className);
-    setStyle(className, enabled);
-  });
+  infos.forEach(setStyle);
 };
 
 const initStyle = () => {

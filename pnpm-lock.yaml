@@ -11,6 +11,9 @@ dependencies:
   solid-js:
     specifier: ^1.8.16
     version: 1.8.16
+  ts-deepmerge:
+    specifier: ^7.0.0
+    version: 7.0.0
 
 devDependencies:
   '@eslint/eslintrc':
@@ -58,6 +61,9 @@ devDependencies:
   tsx:
     specifier: ^4.7.1
     version: 4.7.1
+  type-fest:
+    specifier: ^4.14.0
+    version: 4.14.0
   typescript:
     specifier: ^5.4.3
     version: 5.4.3
@@ -4873,6 +4879,11 @@ packages:
       typescript: 5.4.3
     dev: true
 
+  /ts-deepmerge@7.0.0:
+    resolution: {integrity: sha512-WZ/iAJrKDhdINv1WG6KZIGHrZDar6VfhftG1QJFpVbOYZMYJLJOvZOo1amictRXVdBXZIgBHKswMTXzElngprA==}
+    engines: {node: '>=14.13.1'}
+    dev: false
+
   /tsconfig-paths@4.2.0:
     resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
     engines: {node: '>=6'}
@@ -4927,6 +4938,11 @@ packages:
   /type-fest@3.13.1:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
+    dev: true
+
+  /type-fest@4.14.0:
+    resolution: {integrity: sha512-on5/Cw89wwqGZQu+yWO0gGMGu8VNxsaW9SB2HE8yJjllEk7IDTwnSN1dUVldYILhYPN5HzD7WAaw2cc/jBfn0Q==}
+    engines: {node: '>=16'}
     dev: true
 
   /typedarray-to-buffer@3.1.5:

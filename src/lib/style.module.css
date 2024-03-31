@@ -1,24 +1,24 @@
 /* hide whole message (owner) */
-.chat-owner-none
+.chat-owner-hide
   :global
   yt-live-chat-text-message-renderer[author-type="owner"] {
   display: none !important;
 }
 
 /* hide whole message (moderator) */
-.chat-moderator-none
+.chat-moderator-hide
   :global
   yt-live-chat-text-message-renderer[author-type="moderator"] {
   display: none !important;
 }
 
 /* hide whole message (any other) */
-.chat-others-none :global yt-live-chat-text-message-renderer[author-type=""] {
+.chat-others-hide :global yt-live-chat-text-message-renderer[author-type=""] {
   display: none !important;
 }
 
 /* hide author name (owner) */
-.name-owner-none
+.name-owner-hide
   :global
   yt-live-chat-text-message-renderer[author-type="owner"]
   yt-live-chat-author-chip {
@@ -26,7 +26,7 @@
 }
 
 /* hide author name (moderator) */
-.name-moderator-none
+.name-moderator-hide
   :global
   yt-live-chat-text-message-renderer[author-type="moderator"]
   yt-live-chat-author-chip {
@@ -34,7 +34,7 @@
 }
 
 /* hide author name (any other) */
-.name-others-none
+.name-others-hide
   :global
   yt-live-chat-text-message-renderer[author-type=""]
   yt-live-chat-author-chip {
@@ -42,7 +42,7 @@
 }
 
 /* hide author icon (owner) */
-.icon-owner-none
+.icon-owner-hide
   :global
   yt-live-chat-text-message-renderer[author-type="owner"]
   #author-photo {
@@ -50,7 +50,7 @@
 }
 
 /* hide author icon (moderator) */
-.icon-moderator-none
+.icon-moderator-hide
   :global
   yt-live-chat-text-message-renderer[author-type="moderator"]
   #author-photo {
@@ -58,7 +58,7 @@
 }
 
 /* hide author icon (any other) */
-.icon-others-none
+.icon-others-hide
   :global
   yt-live-chat-text-message-renderer[author-type=""]
   #author-photo {
@@ -66,27 +66,27 @@
 }
 
 /* superchat */
-.superchat-none :global #card.yt-live-chat-paid-message-renderer {
+.superchat-any-hide :global #card.yt-live-chat-paid-message-renderer {
   display: none !important;
 }
 
 /* superchat (sticker) */
-.sticker-none :global yt-live-chat-paid-sticker-renderer {
+.sticker-any-hide :global yt-live-chat-paid-sticker-renderer {
   display: none !important;
 }
 
 /* superchats bar */
-.superchatBar-none :global yt-live-chat-ticker-renderer {
+.superchatBar-any-hide :global yt-live-chat-ticker-renderer {
   display: none !important;
 }
 
 /* member chat */
-.memberChat-none :global yt-live-chat-membership-item-renderer {
+.memberChat-any-hide :global yt-live-chat-membership-item-renderer {
   display: none !important;
 }
 
 /* engagement (e.g. Subscribers-only mode) */
-.engagement-none :global yt-live-chat-viewer-engagement-message-renderer {
+.engagement-any-hide :global yt-live-chat-viewer-engagement-message-renderer {
   display: none !important;
 }
 
@@ -126,7 +126,7 @@
 }
 
 /* do not show moderator badge (spanner) */
-.badge-moderator-none
+.badge-moderator-hide
   :global
   yt-live-chat-author-badge-renderer[type="moderator"] {
   display: none !important;
