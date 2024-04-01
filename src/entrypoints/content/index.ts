@@ -1,5 +1,3 @@
-import "~/lib/style.module.css";
-
 import { browser } from "wxt/browser";
 import { defineContentScript } from "wxt/sandbox";
 
