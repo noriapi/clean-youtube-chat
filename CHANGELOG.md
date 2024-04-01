@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.0](https://github.com/noriapi/clean-youtube-chat/compare/clean-youtube-chat-v0.2.1...clean-youtube-chat-v0.3.0) (2024-04-01)
+
+
+### Features
+
+* add member ([#160](https://github.com/noriapi/clean-youtube-chat/issues/160)) ([ac195e2](https://github.com/noriapi/clean-youtube-chat/commit/ac195e20efd86b7600cb156391aa1a698c8ea075))
+
+
+### Bug Fixes
+
+* **deps:** update dependency solid-js to ^1.8.11 ([#36](https://github.com/noriapi/clean-youtube-chat/issues/36)) ([550d6af](https://github.com/noriapi/clean-youtube-chat/commit/550d6af4460860ddeb54051a4e21406d125f8deb))
+* **deps:** update dependency solid-js to ^1.8.12 ([#67](https://github.com/noriapi/clean-youtube-chat/issues/67)) ([fda5509](https://github.com/noriapi/clean-youtube-chat/commit/fda5509d6c8746fc1b5cd89ee492f4e879ea9e2d))
+* **deps:** update dependency solid-js to ^1.8.14 ([#97](https://github.com/noriapi/clean-youtube-chat/issues/97)) ([e75b893](https://github.com/noriapi/clean-youtube-chat/commit/e75b89327220093538686d1d43ea190d58161ad6))
+* **deps:** update dependency solid-js to ^1.8.15 ([#112](https://github.com/noriapi/clean-youtube-chat/issues/112)) ([e6e4d19](https://github.com/noriapi/clean-youtube-chat/commit/e6e4d19eed99b44fed31c0ab3a02cf110bdd7948))
+* **deps:** update dependency solid-js to ^1.8.16 ([#143](https://github.com/noriapi/clean-youtube-chat/issues/143)) ([2e1f1c9](https://github.com/noriapi/clean-youtube-chat/commit/2e1f1c950f93f76349caaa6a41b1b53fe9276b41))
+
 ## [0.2.1](https://github.com/noriapi/clean-youtube-chat/compare/clean-youtube-chat-v0.2.0...clean-youtube-chat-v0.2.1) (2024-01-11)
 
 
