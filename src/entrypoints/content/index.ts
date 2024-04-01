@@ -9,7 +9,8 @@ import {
   loadConfig,
   onChangeHandler,
 } from "~/lib/config";
-import { getClassName, getOptionClassNames, Styles } from "~/lib/style.css";
+import { getClassName, getOptionClassNames } from "~/lib/style";
+import { Styles } from "~/lib/style.css";
 
 const getBody = () => document.getElementsByTagName("body")[0];
 
