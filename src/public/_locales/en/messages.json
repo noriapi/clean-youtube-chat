@@ -36,6 +36,10 @@
     "message": "Moderator",
     "description": "Moderator section title of configuration form."
   },
+  "configFormMember": {
+    "message": "Member",
+    "description": "Member section title of configuration form."
+  },
   "configFormOthers": {
     "message": "Others",
     "description": "Others section title of configuration form."

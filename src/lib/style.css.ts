@@ -40,6 +40,15 @@ export const styles = {
         },
       ),
     },
+    /* hide author icon (member) */
+    member: {
+      hide: g(
+        `yt-live-chat-text-message-renderer[author-type="member"] #author-photo`,
+        {
+          display: "none !important",
+        },
+      ),
+    },
     /* hide author icon (any other) */
     others: {
       hide: g(
@@ -95,6 +104,15 @@ export const styles = {
         },
       ),
     },
+    member: {
+      /* hide author name (member) */
+      hide: g(
+        `yt-live-chat-text-message-renderer[author-type="member"] yt-live-chat-author-chip`,
+        {
+          display: "none !important",
+        },
+      ),
+    },
     others: {
       /* hide author name (any other) */
       hide: g(
@@ -133,6 +151,12 @@ export const styles = {
     moderator: {
       /* hide whole message (moderator) */
       hide: g(`yt-live-chat-text-message-renderer[author-type="moderator"]`, {
+        display: "none !important",
+      }),
+    },
+    member: {
+      /* hide whole message (member) */
+      hide: g(`yt-live-chat-text-message-renderer[author-type="member"]`, {
         display: "none !important",
       }),
     },

@@ -51,6 +51,15 @@ const ConfigFormInput: Component<
         />
 
         <RadioSelect
+          name="message-member"
+          label={browser.i18n.getMessage("configFormMember")}
+          options={["hide", "show"]}
+          optionLabel={getOptionLabel}
+          value={local.value.chat.member}
+          onInput={(value) => local.setValue("chat", "member", value)}
+        />
+
+        <RadioSelect
           name="message-others"
           label={browser.i18n.getMessage("configFormOthers")}
           options={["hide", "show"]}
@@ -82,6 +91,15 @@ const ConfigFormInput: Component<
         />
 
         <RadioSelect
+          name="name-member"
+          label={browser.i18n.getMessage("configFormMember")}
+          options={["hide", "show"]}
+          optionLabel={getOptionLabel}
+          value={local.value.name.member}
+          onInput={(value) => local.setValue("name", "member", value)}
+        />
+
+        <RadioSelect
           name="name-others"
           label={browser.i18n.getMessage("configFormOthers")}
           options={["hide", "show"]}
@@ -110,6 +128,15 @@ const ConfigFormInput: Component<
           optionLabel={getOptionLabel}
           value={local.value.icon.moderator}
           onInput={(value) => local.setValue("icon", "moderator", value)}
+        />
+
+        <RadioSelect
+          name="icon-member"
+          label={browser.i18n.getMessage("configFormMember")}
+          options={["hide", "show"]}
+          optionLabel={getOptionLabel}
+          value={local.value.icon.member}
+          onInput={(value) => local.setValue("icon", "member", value)}
         />
 
         <RadioSelect
