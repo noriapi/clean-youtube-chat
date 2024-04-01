@@ -47,16 +47,19 @@ export const CONFIG_DEFAULT = {
   chat: {
     owner: "show",
     moderator: "show",
+    member: "show",
     others: "show",
   },
   name: {
     owner: "hide",
     moderator: "hide",
+    member: "hide",
     others: "hide",
   },
   icon: {
     owner: "show",
     moderator: "show",
+    member: "show",
     others: "show",
   },
   badge: {
@@ -73,16 +76,19 @@ export const CONFIG_SHOW_ALL = {
   chat: {
     owner: "show",
     moderator: "show",
+    member: "show",
     others: "show",
   },
   name: {
     owner: "show",
     moderator: "show",
+    member: "show",
     others: "show",
   },
   icon: {
     owner: "show",
     moderator: "show",
+    member: "show",
     others: "show",
   },
   badge: {
@@ -99,16 +105,19 @@ export const CONFIG_HIDE_ALL = {
   chat: {
     owner: "hide",
     moderator: "hide",
+    member: "hide",
     others: "hide",
   },
   name: {
     owner: "hide",
     moderator: "hide",
+    member: "hide",
     others: "hide",
   },
   icon: {
     owner: "hide",
     moderator: "hide",
+    member: "hide",
     others: "hide",
   },
   badge: {
