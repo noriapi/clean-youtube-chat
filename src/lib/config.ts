@@ -4,49 +4,44 @@ import { createStore, SetStoreFunction, unwrap } from "solid-js/store";
 import { Storage } from "webextension-polyfill";
 import { browser } from "wxt/browser";
 
-import type { ClassName } from "~/entrypoints/content";
+import { Styles, styles } from "./style.css";
 
 export const AREA_NAME = "local";
 
-export const Config = S.mutable(
-  S.struct({
-    chat: S.mutable(
-      S.struct({
-        owner: S.literal("hide", "nohighlight", "show"),
-        moderator: S.literal("hide", "show"),
-        others: S.literal("hide", "show"),
-      }),
-    ),
-    name: S.mutable(
-      S.struct({
-        owner: S.literal("hide", "nohighlight", "show"),
-        moderator: S.literal("hide", "nohighlight", "show"),
-        others: S.literal("hide", "show"),
-      }),
-    ),
-    icon: S.mutable(
-      S.struct({
-        owner: S.literal("hide", "show"),
-        moderator: S.literal("hide", "show"),
-        others: S.literal("hide", "show"),
-      }),
-    ),
-    badge: S.mutable(
-      S.struct({
-        moderator: S.literal("hide", "show"),
-      }),
-    ),
-    superchat: S.literal("hide", "show"),
-    sticker: S.literal("hide", "show"),
-    superchatBar: S.literal("hide", "show"),
-    memberChat: S.literal("hide", "show"),
-    engagement: S.literal("hide", "show"),
-  }),
-);
+type NonEmptyArray<A> = [A, ...A[]];
 
-export const eqConfig = Eq.make(Config);
+type DeepStringRecord = string | { [key: string]: DeepStringRecord };
 
-export type Config = S.Schema.Type<typeof Config>;
+type MakeConfigSchema<T extends DeepStringRecord> =
+  T extends Record<infer O extends string, string>
+    ? S.literal<NonEmptyArray<O | "show">>
+    : T extends { [key: string]: DeepStringRecord }
+      ? S.mutable<S.struct<{ [P in keyof T]: MakeConfigSchema<T[P]> }>>
+      : never;
+
+const makeConfigSchema = <T extends DeepStringRecord>(
+  record: T,
+): MakeConfigSchema<T> => {
+  if (Object.values(record).every((v) => typeof v === "string")) {
+    return S.literal("show", ...Object.keys(record)) as MakeConfigSchema<T>;
+  } else {
+    return S.mutable(
+      S.struct(
+        Object.fromEntries(
+          Object.entries(record).map(([p, v]) => [p, makeConfigSchema(v)]),
+        ),
+      ),
+    ) as MakeConfigSchema<T>;
+  }
+};
+
+export const Config = () => {
+  return makeConfigSchema<Styles>(styles);
+};
+
+export const eqConfig = () => Eq.make(Config());
+
+export type Config = S.Schema.Type<ReturnType<typeof Config>>;
 
 export const CONFIG_DEFAULT = {
   chat: {
@@ -67,11 +62,11 @@ export const CONFIG_DEFAULT = {
   badge: {
     moderator: "hide",
   },
-  superchat: "show",
-  sticker: "show",
-  superchatBar: "show",
-  memberChat: "show",
-  engagement: "show",
+  superchat: { any: "show" },
+  sticker: { any: "show" },
+  superchatBar: { any: "show" },
+  memberChat: { any: "show" },
+  engagement: { any: "show" },
 } satisfies Config;
 
 export const CONFIG_SHOW_ALL = {
@@ -93,11 +88,11 @@ export const CONFIG_SHOW_ALL = {
   badge: {
     moderator: "show",
   },
-  superchat: "show",
-  sticker: "show",
-  superchatBar: "show",
-  memberChat: "show",
-  engagement: "show",
+  superchat: { any: "show" },
+  sticker: { any: "show" },
+  superchatBar: { any: "show" },
+  memberChat: { any: "show" },
+  engagement: { any: "show" },
 } satisfies Config;
 
 export const CONFIG_HIDE_ALL = {
@@ -119,127 +114,12 @@ export const CONFIG_HIDE_ALL = {
   badge: {
     moderator: "hide",
   },
-  superchat: "hide",
-  sticker: "hide",
-  superchatBar: "hide",
-  memberChat: "hide",
-  engagement: "hide",
+  superchat: { any: "hide" },
+  sticker: { any: "hide" },
+  superchatBar: { any: "hide" },
+  memberChat: { any: "hide" },
+  engagement: { any: "hide" },
 } satisfies Config;
-
-type helper<T, V> = {
-  [k in keyof T]: T[k] extends string ? Record<T[k], V> : helper<T[k], V>;
-};
-
-type ConfigClassNameMap = helper<Config, ClassName | undefined>;
-
-const ConfigClassNameMap = {
-  chat: {
-    owner: {
-      hide: "chat-owner-none",
-      nohighlight: "message-owner-nohighlight",
-      show: undefined,
-    },
-    moderator: {
-      hide: "chat-owner-none",
-      show: undefined,
-    },
-    others: {
-      hide: "chat-others-none",
-      show: undefined,
-    },
-  },
-  name: {
-    owner: {
-      hide: "name-owner-none",
-      nohighlight: "name-owner-nohighlight",
-      show: undefined,
-    },
-    moderator: {
-      hide: "name-moderator-none",
-      nohighlight: "name-moderator-nohighlight",
-      show: undefined,
-    },
-    others: {
-      hide: "name-others-none",
-      show: undefined,
-    },
-  },
-  icon: {
-    owner: {
-      hide: "icon-owner-none",
-      show: undefined,
-    },
-    moderator: {
-      hide: "icon-moderator-none",
-      show: undefined,
-    },
-    others: {
-      hide: "icon-others-none",
-      show: undefined,
-    },
-  },
-  badge: {
-    moderator: {
-      hide: "badge-moderator-none",
-      show: undefined,
-    },
-  },
-  superchat: {
-    hide: "superchat-none",
-    show: undefined,
-  },
-  sticker: {
-    hide: "sticker-none",
-    show: undefined,
-  },
-  superchatBar: {
-    hide: "superchatBar-none",
-    show: undefined,
-  },
-  memberChat: {
-    hide: "memberChat-none",
-    show: undefined,
-  },
-  engagement: {
-    hide: "engagement-none",
-    show: undefined,
-  },
-} as const satisfies ConfigClassNameMap;
-
-interface DeepRecord {
-  [k: string]: DeepRecord | string;
-}
-
-const traverse = (
-  obj: DeepRecord,
-  cb: (path: string[], value: string) => void,
-  path: string[] = [],
-) => {
-  Object.entries(obj).forEach(([k, v]) => {
-    if (typeof v === "string") {
-      cb([...path, k], v);
-    } else {
-      traverse(v, cb, [...path, k]);
-    }
-  });
-};
-
-export const classNames = (config: Config) => {
-  const results: ClassName[] = [];
-
-  traverse(config, (path, v) => {
-    const mayClassName = path.reduce(
-      (inner, p) => inner[p as keyof typeof inner] as DeepRecord,
-      ConfigClassNameMap as unknown as DeepRecord,
-    )[v] as ClassName | undefined;
-
-    if (mayClassName != null) {
-      results.push(mayClassName);
-    }
-  });
-
-  return results;
-};
 
 export const loadConfig = async (defaultConfig: Config) => {
   const storage = await browser.storage[AREA_NAME].get(["config"]);
@@ -248,7 +128,7 @@ export const loadConfig = async (defaultConfig: Config) => {
     return defaultConfig;
   }
 
-  const result = S.decodeUnknownOption(Config)(storage.config);
+  const result = S.decodeUnknownOption(Config())(storage.config);
   return result._tag === "Some" ? result.value : defaultConfig;
 };
 
@@ -260,19 +140,19 @@ export const onChangeHandler =
   (callback: (newValue: Config) => void) =>
   (changes: Record<string, Storage.StorageChange>, areaName: string) => {
     if (areaName === AREA_NAME && "config" in changes) {
-      const newConfigResult = S.decodeUnknownOption(Config)(
+      const newConfigResult = S.decodeUnknownOption(Config())(
         changes.config.newValue,
       );
       if (newConfigResult._tag === "None") return;
       const newConfig = newConfigResult.value;
 
-      const oldConfigResult = S.decodeUnknownOption(Config)(
+      const oldConfigResult = S.decodeUnknownOption(Config())(
         changes.config.oldValue,
       );
       const oldConfig =
         oldConfigResult._tag === "Some" ? oldConfigResult.value : undefined;
 
-      if (oldConfig != null && eqConfig(oldConfig, newConfig)) return;
+      if (oldConfig != null && eqConfig()(oldConfig, newConfig)) return;
 
       callback(newConfig);
     }

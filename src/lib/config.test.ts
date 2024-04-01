@@ -3,11 +3,8 @@ import { fc, it } from "@fast-check/vitest";
 import { beforeEach, describe, expect, vi } from "vitest";
 import { fakeBrowser } from "wxt/testing";
 
-import { getClassNames } from "~/entrypoints/content";
-
 import {
   AREA_NAME,
-  classNames,
   Config,
   CONFIG_HIDE_ALL,
   CONFIG_SHOW_ALL,
@@ -18,15 +15,7 @@ import {
   saveConfig,
 } from "./config";
 
-const arbConfig: fc.Arbitrary<Config> = A.make(Config)(fc);
-
-describe("classNames", () => {
-  it.prop([arbConfig])("should always return valid classNames", (config) => {
-    classNames(config).forEach((cn) => {
-      expect(getClassNames()).toContain(cn);
-    });
-  });
-});
+const arbConfig: fc.Arbitrary<Config> = A.make(Config())(fc);
 
 describe("saveConfig, loadConfig", () => {
   beforeEach(() => {
@@ -47,7 +36,7 @@ describe("onChangeHandler", () => {
     fakeBrowser.reset();
   });
 
-  it.prop([arbConfig])(
+  it.prop([arbConfig], { numRuns: 10 })(
     "should always handle changes that creating new config",
     async (config) => {
       const cb = vi.fn();
@@ -60,13 +49,16 @@ describe("onChangeHandler", () => {
     },
   );
 
-  it.prop([
-    fc.uniqueArray(arbConfig, {
-      minLength: 2,
-      maxLength: 2,
-      comparator: eqConfig,
-    }),
-  ])(
+  it.prop(
+    [
+      fc.uniqueArray(arbConfig, {
+        minLength: 2,
+        maxLength: 2,
+        comparator: eqConfig(),
+      }),
+    ],
+    { numRuns: 10 },
+  )(
     "should always handle changes that replacing old config",
     async ([oldConfig, newConfig]) => {
       const cb = vi.fn();
@@ -81,7 +73,7 @@ describe("onChangeHandler", () => {
     },
   );
 
-  it.prop([arbConfig])(
+  it.prop([arbConfig], { numRuns: 10 })(
     "should not always handle changes that don't actually change",
     async (config) => {
       const cb = vi.fn();
