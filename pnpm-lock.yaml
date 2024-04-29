@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.64.16
     version: 0.64.16(effect@2.4.15)(fast-check@3.15.0)
   '@vanilla-extract/css':
-    specifier: ^1.14.2
-    version: 1.14.2
+    specifier: ^1.15.0
+    version: 1.15.0
   solid-js:
     specifier: ^1.8.17
     version: 1.8.17
@@ -1520,8 +1520,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vanilla-extract/css@1.14.2:
-    resolution: {integrity: sha512-OasEW4ojGqqRiUpsyEDUMrSkLnmwbChtafkogpCZ1eDAgAZ9eY9CHLYodj2nB8aV5T25kQ5shm92k25ngjYhhg==}
+  /@vanilla-extract/css@1.15.0:
+    resolution: {integrity: sha512-B21dRQTiRJ9xMlW3RGOYMfGo11S2Bgcke6YrEJxGBovJFMsMwaex2mQC4XnVvreWMlYef+Na+zBUFDw7tfKMcw==}
     dependencies:
       '@emotion/hash': 0.9.1
       '@vanilla-extract/private': 1.0.4
@@ -1541,7 +1541,7 @@ packages:
       '@babel/core': 7.24.3
       '@babel/plugin-syntax-typescript': 7.24.1(@babel/core@7.24.3)
       '@vanilla-extract/babel-plugin-debug-ids': 1.0.5
-      '@vanilla-extract/css': 1.14.2
+      '@vanilla-extract/css': 1.15.0
       esbuild: 0.19.11
       eval: 0.1.8
       find-up: 5.0.0
