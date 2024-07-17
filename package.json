@@ -60,7 +60,7 @@
     "vitest": "^1.6.0",
     "wxt": "^0.17.11"
   },
-  "packageManager": "pnpm@8.15.8",
+  "packageManager": "pnpm@8.15.9",
   "volta": {
     "node": "20.15.1"
   }
