@@ -20,8 +20,8 @@ devDependencies:
     specifier: ^3.1.0
     version: 3.1.0
   '@fast-check/vitest':
-    specifier: ^0.1.0
-    version: 0.1.0(vitest@1.6.0)
+    specifier: ^0.1.2
+    version: 0.1.2(vitest@1.6.0)
   '@playwright/test':
     specifier: ^1.46.0
     version: 1.46.0
@@ -1183,10 +1183,10 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@fast-check/vitest@0.1.0(vitest@1.6.0):
-    resolution: {integrity: sha512-AKgtK1/TOvFC1U8YjYAz1okILr9+ePXPgpMsdlQ0w+slwRzxUYkidSduHE/nN+P9RWlE8VTJC0ma/P86APyxHA==}
+  /@fast-check/vitest@0.1.2(vitest@1.6.0):
+    resolution: {integrity: sha512-oaWBsg3XI8UBbjmfEtZhv36ars89ljH1/PRjzcmQsVQK5EqWZRZpIDwO2QrnIROh8LuLRXFYb67qGe+cPxW5zg==}
     peerDependencies:
-      vitest: '>=0.28.1 <1.0.0 || ^1'
+      vitest: '>=0.28.1 <1.0.0 || ^1 || ^2'
     dependencies:
       fast-check: 3.15.0
       vitest: 1.6.0(@types/node@20.14.14)
