@@ -39,7 +39,7 @@ devDependencies:
     version: 7.18.0(eslint@8.57.1)(typescript@5.6.2)
   '@vanilla-extract/vite-plugin':
     specifier: ^4.0.15
-    version: 4.0.15(@types/node@20.16.5)(vite@5.4.5)
+    version: 4.0.15(@types/node@20.16.5)(vite@5.4.6)
   eslint:
     specifier: ^8.57.1
     version: 8.57.1
@@ -68,11 +68,11 @@ devDependencies:
     specifier: ^5.6.2
     version: 5.6.2
   vite:
-    specifier: ^5.4.5
-    version: 5.4.5(@types/node@20.16.5)
+    specifier: ^5.4.6
+    version: 5.4.6(@types/node@20.16.5)
   vite-plugin-solid:
     specifier: ^2.10.2
-    version: 2.10.2(solid-js@1.8.22)(vite@5.4.5)
+    version: 2.10.2(solid-js@1.8.22)(vite@5.4.6)
   vitest:
     specifier: ^1.6.0
     version: 1.6.0(@types/node@20.16.5)
@@ -1774,7 +1774,7 @@ packages:
       find-up: 5.0.0
       javascript-stringify: 2.1.0
       mlly: 1.4.2
-      vite: 5.4.5(@types/node@20.16.5)
+      vite: 5.4.6(@types/node@20.16.5)
       vite-node: 1.6.0(@types/node@20.16.5)
     transitivePeerDependencies:
       - '@types/node'
@@ -1792,13 +1792,13 @@ packages:
   /@vanilla-extract/private@1.0.6:
     resolution: {integrity: sha512-ytsG/JLweEjw7DBuZ/0JCN4WAQgM9erfSTdS1NQY778hFQSZ6cfCDEZZ0sgVm4k54uNz6ImKB33AYvSR//fjxw==}
 
-  /@vanilla-extract/vite-plugin@4.0.15(@types/node@20.16.5)(vite@5.4.5):
+  /@vanilla-extract/vite-plugin@4.0.15(@types/node@20.16.5)(vite@5.4.6):
     resolution: {integrity: sha512-kl0EJ0DGRA3/cuZeXfBu4C9oPnkCr1PJIAr1/7Fu1mCrlE+fC6DCriPY2cRuGbbBE/ZhXryUSNT7rWjqAyHlkw==}
     peerDependencies:
       vite: ^4.0.3 || ^5.0.0
     dependencies:
       '@vanilla-extract/integration': 7.1.9(@types/node@20.16.5)
-      vite: 5.4.5(@types/node@20.16.5)
+      vite: 5.4.6(@types/node@20.16.5)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -5339,7 +5339,7 @@ packages:
       debug: 4.3.4
       pathe: 1.1.2
       picocolors: 1.0.1
-      vite: 5.4.5(@types/node@20.16.5)
+      vite: 5.4.6(@types/node@20.16.5)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -5352,7 +5352,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-solid@2.10.2(solid-js@1.8.22)(vite@5.4.5):
+  /vite-plugin-solid@2.10.2(solid-js@1.8.22)(vite@5.4.6):
     resolution: {integrity: sha512-AOEtwMe2baBSXMXdo+BUwECC8IFHcKS6WQV/1NEd+Q7vHPap5fmIhLcAzr+DUJ04/KHx/1UBU0l1/GWP+rMAPQ==}
     peerDependencies:
       '@testing-library/jest-dom': ^5.16.6 || ^5.17.0 || ^6.*
@@ -5368,14 +5368,14 @@ packages:
       merge-anything: 5.1.7
       solid-js: 1.8.22
       solid-refresh: 0.6.3(solid-js@1.8.22)
-      vite: 5.4.5(@types/node@20.16.5)
-      vitefu: 0.2.5(vite@5.4.5)
+      vite: 5.4.6(@types/node@20.16.5)
+      vitefu: 0.2.5(vite@5.4.6)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@5.4.5(@types/node@20.16.5):
-    resolution: {integrity: sha512-pXqR0qtb2bTwLkev4SE3r4abCNioP3GkjvIDLlzziPpXtHgiJIjuKl+1GN6ESOT3wMjG3JTeARopj2SwYaHTOA==}
+  /vite@5.4.6(@types/node@20.16.5):
+    resolution: {integrity: sha512-IeL5f8OO5nylsgzd9tq4qD2QqI0k2CQLGrWD0rCN0EQJZpBK5vJAx0I+GDkMOXxQX/OfFHMuLIx6ddAxGX/k+Q==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -5413,7 +5413,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitefu@0.2.5(vite@5.4.5):
+  /vitefu@0.2.5(vite@5.4.6):
     resolution: {integrity: sha512-SgHtMLoqaeeGnd2evZ849ZbACbnwQCIwRH57t18FxcXoZop0uQu0uzlIhJBlF/eWVzuce0sHeqPcDo+evVcg8Q==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
@@ -5421,7 +5421,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.4.5(@types/node@20.16.5)
+      vite: 5.4.6(@types/node@20.16.5)
     dev: true
 
   /vitest@1.6.0(@types/node@20.16.5):
@@ -5467,7 +5467,7 @@ packages:
       strip-literal: 2.0.0
       tinybench: 2.5.1
       tinypool: 0.8.3
-      vite: 5.4.5(@types/node@20.16.5)
+      vite: 5.4.6(@types/node@20.16.5)
       vite-node: 1.6.0(@types/node@20.16.5)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
@@ -5675,7 +5675,7 @@ packages:
       prompts: 2.4.2
       publish-browser-extension: 2.1.3
       unimport: 3.7.1
-      vite: 5.4.5(@types/node@20.16.5)
+      vite: 5.4.6(@types/node@20.16.5)
       web-ext-run: 0.2.0
       webextension-polyfill: 0.10.0
     transitivePeerDependencies:
