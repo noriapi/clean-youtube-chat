@@ -35,7 +35,7 @@
   "dependencies": {
     "@effect/schema": "^0.64.16",
     "@vanilla-extract/css": "^1.15.5",
-    "solid-js": "^1.8.23"
+    "solid-js": "^1.9.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
