@@ -53,8 +53,8 @@ devDependencies:
     specifier: ^0.13.1
     version: 0.13.1(eslint@8.57.1)(typescript@5.6.3)
   globals:
-    specifier: ^15.10.0
-    version: 15.10.0
+    specifier: ^15.11.0
+    version: 15.11.0
   playwright:
     specifier: ^1.48.0
     version: 1.48.0
@@ -3346,8 +3346,8 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
-  /globals@15.10.0:
-    resolution: {integrity: sha512-tqFIbz83w4Y5TCbtgjZjApohbuh7K9BxGYFm7ifwDR240tvdb7P9x+/9VvUKlmkPoiknoJtanI8UOrqxS3a7lQ==}
+  /globals@15.11.0:
+    resolution: {integrity: sha512-yeyNSjdbyVaWurlwCpcA6XNBrHTMIeDdj0/hnvX/OLJ9ekOXYbLsLinH/MucQyGvNnXhidTdNhTtJaffL2sMfw==}
     engines: {node: '>=18'}
     dev: true
 
