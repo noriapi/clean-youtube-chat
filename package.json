@@ -42,7 +42,7 @@
     "@fast-check/vitest": "^0.1.0",
     "@playwright/test": "^1.48.2",
     "@types/node": "^20.17.2",
-    "@types/webextension-polyfill": "^0.10.7",
+    "@types/webextension-polyfill": "^0.12.1",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "@vanilla-extract/vite-plugin": "^4.0.17",
