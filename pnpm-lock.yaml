@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@effect/schema':
-    specifier: ^0.64.16
-    version: 0.64.16(effect@2.4.15)(fast-check@3.15.0)
+    specifier: ^0.75.5
+    version: 0.75.5(effect@3.10.4)
   '@vanilla-extract/css':
     specifier: ^1.16.0
     version: 1.16.0
@@ -486,14 +486,13 @@ packages:
       - supports-color
     dev: true
 
-  /@effect/schema@0.64.16(effect@2.4.15)(fast-check@3.15.0):
-    resolution: {integrity: sha512-vAidIu1H/lrjqvomJfzTk4+EtlffgJPD8hH8KLIyN4L4TZg3BLPXiqgUhBvhClUd6lfv24u3gnKhE+7W1yn6Sg==}
+  /@effect/schema@0.75.5(effect@3.10.4):
+    resolution: {integrity: sha512-TQInulTVCuF+9EIbJpyLP6dvxbQJMphrnRqgexm/Ze39rSjfhJuufF7XvU3SxTgg3HnL7B/kpORTJbHhlE6thw==}
     peerDependencies:
-      effect: ^2.4.15
-      fast-check: ^3.13.2
+      effect: ^3.9.2
     dependencies:
-      effect: 2.4.15
-      fast-check: 3.15.0
+      effect: 3.10.4
+      fast-check: 3.22.0
     dev: false
 
   /@emotion/hash@0.9.1:
@@ -2671,8 +2670,10 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
 
-  /effect@2.4.15:
-    resolution: {integrity: sha512-fwOeADUSbmlvbNpAlUlNhuCPHN08VKt53YbtSzNe9aZK3CclVJdq2gPgo1TCaGQsJpPf42xw7QrrTBQiH94few==}
+  /effect@3.10.4:
+    resolution: {integrity: sha512-D7Mryq8jylT0fIGrgXEn2TublO/BhduRwzlqV5z1l/QFY6grs7UOyyomlAOFMK9ArSYiLgrOSMQ/Cr/cIOeU2Q==}
+    dependencies:
+      fast-check: 3.22.0
     dev: false
 
   /electron-to-chromium@1.4.617:
@@ -3058,6 +3059,14 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       pure-rand: 6.0.4
+    dev: true
+
+  /fast-check@3.22.0:
+    resolution: {integrity: sha512-8HKz3qXqnHYp/VCNn2qfjHdAdcI8zcSqOyX64GOMukp7SL2bfzfeDKjSd+UyECtejccaZv3LcvZTm9YDD22iCQ==}
+    engines: {node: '>=8.0.0'}
+    dependencies:
+      pure-rand: 6.1.0
+    dev: false
 
   /fast-deep-equal@3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
@@ -4572,6 +4581,11 @@ packages:
 
   /pure-rand@6.0.4:
     resolution: {integrity: sha512-LA0Y9kxMYv47GIPJy6MI84fqTd2HmYZI83W/kM/SkKfDlajnZYfmXFTxkbY+xSBPkLJxltMa9hIkmdc29eguMA==}
+    dev: true
+
+  /pure-rand@6.1.0:
+    resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==}
+    dev: false
 
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
