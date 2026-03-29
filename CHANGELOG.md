@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/noriapi/clean-youtube-chat/compare/clean-youtube-chat-v0.3.0...clean-youtube-chat-v0.3.1) (2024-04-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency solid-js to ^1.8.17 ([#188](https://github.com/noriapi/clean-youtube-chat/issues/188)) ([404380d](https://github.com/noriapi/clean-youtube-chat/commit/404380dbb8e62fa6fa20eaea3f856002bb98b928))
+
 ## [0.3.0](https://github.com/noriapi/clean-youtube-chat/compare/clean-youtube-chat-v0.2.1...clean-youtube-chat-v0.3.0) (2024-04-01)
 
 
