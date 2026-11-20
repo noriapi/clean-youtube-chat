@@ -33,7 +33,7 @@
     "zip:firefox": "wxt zip -b firefox"
   },
   "dependencies": {
-    "@effect/schema": "^0.64.16",
+    "@effect/schema": "^0.75.5",
     "@vanilla-extract/css": "^1.16.0",
     "solid-js": "^1.9.3"
   },
